@@ -1,312 +1,0 @@
-!<arch>
-__.PKGDEF       0           0     0     644     14523     `
-go object darwin amd64 go1.4 X:precisestack
-
-$$
-package generate
-	import ast "go/ast"
-	import parser "go/parser"
-	import runtime "runtime"
-	import errors "errors"
-	import io "io"
-	import reflect "reflect"
-	import printer "go/printer"
-	import token "go/token"
-	import template "text/template"
-	import regexp "regexp"
-	import bytes "bytes"
-	type @"io".Writer interface { Write(@"io".p []byte) (@"io".n int, @"io".err error) }
-	type @"reflect".ChanDir int
-	func (@"reflect".dÂ·2 @"reflect".ChanDir) String () (? string)
-	type @"reflect".StructTag string
-	func (@"reflect".tagÂ·2 @"reflect".StructTag "esc:0x0") Get (@"reflect".keyÂ·3 string "esc:0x0") (? string)
-	type @"reflect".StructField struct { Name string; PkgPath string; Type @"reflect".Type; Tag @"reflect".StructTag; Offset uintptr; Index []int; Anonymous bool }
-	type @"reflect".Kind uint
-	func (@"reflect".kÂ·2 @"reflect".Kind) String () (? string)
-	type @"reflect".typeAlg struct { @"reflect".hash func(? @"unsafe".Pointer, ? uintptr, ? uintptr) (? uintptr); @"reflect".equal func(? @"unsafe".Pointer, ? @"unsafe".Pointer, ? uintptr) (? bool) }
-	type @"reflect".method struct { @"reflect".name *string; @"reflect".pkgPath *string; @"reflect".mtyp *@"reflect".rtype; @"reflect".typ *@"reflect".rtype; @"reflect".ifn @"unsafe".Pointer; @"reflect".tfn @"unsafe".Pointer }
-	type @"reflect".uncommonType struct { @"reflect".name *string; @"reflect".pkgPath *string; @"reflect".methods []@"reflect".method }
-	func (@"reflect".tÂ·2 *@"reflect".uncommonType "esc:0x1") Method (@"reflect".iÂ·3 int) (@"reflect".mÂ·1 @"reflect".Method)
-	func (@"reflect".tÂ·3 *@"reflect".uncommonType "esc:0x0") MethodByName (@"reflect".nameÂ·4 string "esc:0x0") (@"reflect".mÂ·1 @"reflect".Method, @"reflect".okÂ·2 bool)
-	func (@"reflect".tÂ·2 *@"reflect".uncommonType "esc:0x1") Name () (? string) { if @"reflect".tÂ·2 == nil || @"reflect".tÂ·2.@"reflect".name == nil { return "" }; return *@"reflect".tÂ·2.@"reflect".name }
-	func (@"reflect".tÂ·2 *@"reflect".uncommonType "esc:0x0") NumMethod () (? int) { if @"reflect".tÂ·2 == nil { return 0x0 }; return len(@"reflect".tÂ·2.@"reflect".methods) }
-	func (@"reflect".tÂ·2 *@"reflect".uncommonType "esc:0x1") PkgPath () (? string) { if @"reflect".tÂ·2 == nil || @"reflect".tÂ·2.@"reflect".pkgPath == nil { return "" }; return *@"reflect".tÂ·2.@"reflect".pkgPath }
-	func (@"reflect".tÂ·2 *@"reflect".uncommonType "esc:0x2") @"reflect".uncommon () (? *@"reflect".uncommonType) { return @"reflect".tÂ·2 }
-	type @"reflect".rtype struct { @"reflect".size uintptr; @"reflect".hash uint32; _ uint8; @"reflect".align uint8; @"reflect".fieldAlign uint8; @"reflect".kind uint8; @"reflect".alg *@"reflect".typeAlg; @"reflect".gc [2]@"unsafe".Pointer; @"reflect".string *string; @"reflect".? *@"reflect".uncommonType; @"reflect".ptrToThis *@"reflect".rtype; @"reflect".zero @"unsafe".Pointer }
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x0") Align () (? int) { return int(@"reflect".tÂ·2.@"reflect".align) }
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x0") AssignableTo (@"reflect".uÂ·3 @"reflect".Type "esc:0x0") (? bool)
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x0") Bits () (? int)
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x0") ChanDir () (? @"reflect".ChanDir)
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x0") Comparable () (? bool) { return @"reflect".tÂ·2.@"reflect".alg != nil && @"reflect".tÂ·2.@"reflect".alg.@"reflect".equal != nil }
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x0") ConvertibleTo (@"reflect".uÂ·3 @"reflect".Type "esc:0x0") (? bool)
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") Elem () (? @"reflect".Type)
-	func (@"reflect".tÂ·2 *@"reflect".rtype) Field (@"reflect".iÂ·3 int) (? @"reflect".StructField)
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x0") FieldAlign () (? int) { return int(@"reflect".tÂ·2.@"reflect".fieldAlign) }
-	func (@"reflect".tÂ·2 *@"reflect".rtype) FieldByIndex (@"reflect".indexÂ·3 []int "esc:0x0") (? @"reflect".StructField)
-	func (@"reflect".tÂ·3 *@"reflect".rtype) FieldByName (@"reflect".nameÂ·4 string "esc:0x0") (? @"reflect".StructField, ? bool)
-	func (@"reflect".tÂ·3 *@"reflect".rtype) FieldByNameFunc (@"reflect".matchÂ·4 func(? string) (? bool) "esc:0x0") (? @"reflect".StructField, ? bool)
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x0") Implements (@"reflect".uÂ·3 @"reflect".Type) (? bool)
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x0") In (@"reflect".iÂ·3 int) (? @"reflect".Type)
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x0") IsVariadic () (? bool)
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") Key () (? @"reflect".Type)
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x0") Kind () (? @"reflect".Kind) { return @"reflect".Kind(@"reflect".tÂ·2.@"reflect".kind & 0x1F) }
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x0") Len () (? int)
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x0") Method (@"reflect".iÂ·3 int) (@"reflect".mÂ·1 @"reflect".Method)
-	func (@"reflect".tÂ·3 *@"reflect".rtype "esc:0x0") MethodByName (@"reflect".nameÂ·4 string "esc:0x0") (@"reflect".mÂ·1 @"reflect".Method, @"reflect".okÂ·2 bool)
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") Name () (? string)
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x0") NumField () (? int)
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x0") NumIn () (? int)
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x0") NumMethod () (? int)
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x0") NumOut () (? int)
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x0") Out (@"reflect".iÂ·3 int) (? @"reflect".Type)
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") PkgPath () (? string)
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x0") Size () (? uintptr) { return @"reflect".tÂ·2.@"reflect".size }
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") String () (? string) { return *@"reflect".tÂ·2.@"reflect".string }
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x2") @"reflect".common () (? *@"reflect".rtype) { return @"reflect".tÂ·2 }
-	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x0") @"reflect".pointers () (? bool) { return @"reflect".tÂ·2.@"reflect".kind & 0x80 == 0x0 }
-	func (@"reflect".tÂ·2 *@"reflect".rtype) @"reflect".ptrTo () (? *@"reflect".rtype)
-	type @"reflect".flag uintptr
-	func (@"reflect".fÂ·2 @"reflect".flag) @"reflect".kind () (? @"reflect".Kind) { return @"reflect".Kind(@"reflect".fÂ·2 & @"reflect".flag(0x1F)) }
-	func (@"reflect".fÂ·1 @"reflect".flag) @"reflect".mustBe (@"reflect".expectedÂ·2 @"reflect".Kind)
-	func (@"reflect".fÂ·1 @"reflect".flag) @"reflect".mustBeAssignable ()
-	func (@"reflect".fÂ·1 @"reflect".flag) @"reflect".mustBeExported ()
-	type @"reflect".Value struct { @"reflect".typ *@"reflect".rtype; @"reflect".ptr @"unsafe".Pointer; @"reflect".? @"reflect".flag }
-	func (@"reflect".vÂ·2 @"reflect".Value) Addr () (? @"reflect".Value)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x0") Bool () (? bool)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1") Bytes () (? []byte)
-	func (@"reflect".vÂ·2 @"reflect".Value) Call (@"reflect".inÂ·3 []@"reflect".Value "esc:0x0") (? []@"reflect".Value)
-	func (@"reflect".vÂ·2 @"reflect".Value) CallSlice (@"reflect".inÂ·3 []@"reflect".Value "esc:0x0") (? []@"reflect".Value)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x0") CanAddr () (? bool) { return @"reflect".vÂ·2.@"reflect".flag & @"reflect".flag(0x80) != @"reflect".flag(0x0) }
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x0") CanInterface () (? bool)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x0") CanSet () (? bool) { return @"reflect".vÂ·2.@"reflect".flag & @"reflect".flag(0xA0) == @"reflect".flag(0x80) }
-	func (@"reflect".vÂ·2 @"reflect".Value) Cap () (? int)
-	func (@"reflect".vÂ·1 @"reflect".Value) Close ()
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x0") Complex () (? complex128)
-	func (@"reflect".vÂ·2 @"reflect".Value) Convert (@"reflect".tÂ·3 @"reflect".Type) (? @"reflect".Value)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x3") Elem () (? @"reflect".Value)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x3") Field (@"reflect".iÂ·3 int) (? @"reflect".Value)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x2") FieldByIndex (@"reflect".indexÂ·3 []int "esc:0x0") (? @"reflect".Value)
-	func (@"reflect".vÂ·2 @"reflect".Value) FieldByName (@"reflect".nameÂ·3 string "esc:0x0") (? @"reflect".Value)
-	func (@"reflect".vÂ·2 @"reflect".Value) FieldByNameFunc (@"reflect".matchÂ·3 func(? string) (? bool) "esc:0x0") (? @"reflect".Value)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x0") Float () (? float64)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x3") Index (@"reflect".iÂ·3 int) (? @"reflect".Value)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x0") Int () (? int64)
-	func (@"reflect".vÂ·2 @"reflect".Value) Interface () (@"reflect".iÂ·1 interface {})
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x0") InterfaceData () (? [2]uintptr)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x0") IsNil () (? bool)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x0") IsValid () (? bool) { return @"reflect".vÂ·2.@"reflect".flag != @"reflect".flag(0x0) }
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x0") Kind () (? @"reflect".Kind)
-	func (@"reflect".vÂ·2 @"reflect".Value) Len () (? int)
-	func (@"reflect".vÂ·2 @"reflect".Value) MapIndex (@"reflect".keyÂ·3 @"reflect".Value) (? @"reflect".Value)
-	func (@"reflect".vÂ·2 @"reflect".Value) MapKeys () (? []@"reflect".Value)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x2") Method (@"reflect".iÂ·3 int) (? @"reflect".Value)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x2") MethodByName (@"reflect".nameÂ·3 string "esc:0x0") (? @"reflect".Value)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x0") NumField () (? int)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x0") NumMethod () (? int)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x0") OverflowComplex (@"reflect".xÂ·3 complex128) (? bool)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x0") OverflowFloat (@"reflect".xÂ·3 float64) (? bool)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x0") OverflowInt (@"reflect".xÂ·3 int64) (? bool)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x0") OverflowUint (@"reflect".xÂ·3 uint64) (? bool)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x2") Pointer () (? uintptr)
-	func (@"reflect".vÂ·3 @"reflect".Value) Recv () (@"reflect".xÂ·1 @"reflect".Value, @"reflect".okÂ·2 bool)
-	func (@"reflect".vÂ·1 @"reflect".Value) Send (@"reflect".xÂ·2 @"reflect".Value)
-	func (@"reflect".vÂ·1 @"reflect".Value) Set (@"reflect".xÂ·2 @"reflect".Value)
-	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x0") SetBool (@"reflect".xÂ·2 bool)
-	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x0") SetBytes (@"reflect".xÂ·2 []byte)
-	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x0") SetCap (@"reflect".nÂ·2 int)
-	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x0") SetComplex (@"reflect".xÂ·2 complex128)
-	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x0") SetFloat (@"reflect".xÂ·2 float64)
-	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x0") SetInt (@"reflect".xÂ·2 int64)
-	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x0") SetLen (@"reflect".nÂ·2 int)
-	func (@"reflect".vÂ·1 @"reflect".Value) SetMapIndex (@"reflect".keyÂ·2 @"reflect".Value, @"reflect".valÂ·3 @"reflect".Value)
-	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x0") SetPointer (@"reflect".xÂ·2 @"unsafe".Pointer)
-	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x0") SetString (@"reflect".xÂ·2 string)
-	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x0") SetUint (@"reflect".xÂ·2 uint64)
-	func (@"reflect".vÂ·2 @"reflect".Value) Slice (@"reflect".iÂ·3 int, @"reflect".jÂ·4 int) (? @"reflect".Value)
-	func (@"reflect".vÂ·2 @"reflect".Value) Slice3 (@"reflect".iÂ·3 int, @"reflect".jÂ·4 int, @"reflect".kÂ·5 int) (? @"reflect".Value)
-	func (@"reflect".vÂ·2 @"reflect".Value) String () (? string)
-	func (@"reflect".vÂ·3 @"reflect".Value) TryRecv () (@"reflect".xÂ·1 @"reflect".Value, @"reflect".okÂ·2 bool)
-	func (@"reflect".vÂ·2 @"reflect".Value) TrySend (@"reflect".xÂ·3 @"reflect".Value) (? bool)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x3") Type () (? @"reflect".Type)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x0") Uint () (? uint64)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x2") UnsafeAddr () (? uintptr)
-	func (@"reflect".vÂ·2 @"reflect".Value) @"reflect".assignTo (@"reflect".contextÂ·3 string "esc:0x0", @"reflect".dstÂ·4 *@"reflect".rtype, @"reflect".targetÂ·5 @"unsafe".Pointer) (? @"reflect".Value)
-	func (@"reflect".vÂ·2 @"reflect".Value) @"reflect".call (@"reflect".opÂ·3 string "esc:0x0", @"reflect".inÂ·4 []@"reflect".Value "esc:0x0") (? []@"reflect".Value)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x3") @"reflect".pointer () (? @"unsafe".Pointer)
-	func (@"reflect".vÂ·3 @"reflect".Value) @"reflect".recv (@"reflect".nbÂ·4 bool) (@"reflect".valÂ·1 @"reflect".Value, @"reflect".okÂ·2 bool)
-	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1") @"reflect".runes () (? []rune)
-	func (@"reflect".vÂ·2 @"reflect".Value) @"reflect".send (@"reflect".xÂ·3 @"reflect".Value, @"reflect".nbÂ·4 bool) (@"reflect".selectedÂ·1 bool)
-	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x0") @"reflect".setRunes (@"reflect".xÂ·2 []rune)
-	type @"reflect".Method struct { Name string; PkgPath string; Type @"reflect".Type; Func @"reflect".Value; Index int }
-	type @"reflect".Type interface { Align() (? int); AssignableTo(@"reflect".u @"reflect".Type) (? bool); Bits() (? int); ChanDir() (? @"reflect".ChanDir); Comparable() (? bool); ConvertibleTo(@"reflect".u @"reflect".Type) (? bool); Elem() (? @"reflect".Type); Field(@"reflect".i int) (? @"reflect".StructField); FieldAlign() (? int); FieldByIndex(@"reflect".index []int) (? @"reflect".StructField); FieldByName(@"reflect".name string) (? @"reflect".StructField, ? bool); FieldByNameFunc(@"reflect".match func(? string) (? bool)) (? @"reflect".StructField, ? bool); Implements(@"reflect".u @"reflect".Type) (? bool); In(@"reflect".i int) (? @"reflect".Type); IsVariadic() (? bool); Key() (? @"reflect".Type); Kind() (? @"reflect".Kind); Len() (? int); Method(? int) (? @"reflect".Method); MethodByName(? string) (? @"reflect".Method, ? bool); Name() (? string); NumField() (? int); NumIn() (? int); NumMethod() (? int); NumOut() (? int); Out(@"reflect".i int) (? @"reflect".Type); PkgPath() (? string); Size() (? uintptr); String() (? string); @"reflect".common() (? *@"reflect".rtype); @"reflect".uncommon() (? *@"reflect".uncommonType) }
-	func @"".GenerateMockSource (@"".wÂ·2 @"io".Writer, @"".pkgÂ·3 string, @"".interfacesÂ·4 []@"reflect".Type) (? error)
-	func @"".init ()
-
-$$
- _go_.6          0           0     0     644     47176     `
-go object darwin amd64 go1.4 X:precisestack
-
-!
-  go13ldbytes.aerrors.ago/ast.ago/parser.ago/printer.ago/token.aio.areflect.aregexp.atext/template.a ş"".initÂ·1  à  ÈeH‹%    H;awè    ëêHƒìpH    H‰$HÇD$    è    H‹L$H    H‹+H‰l$`H‹kH‰l$hH    H‰\$XH    H‰\$PH    H‰$H‰L$0H‰L$H\$`H‰\$H\$PH‰\$è    H    H‹+H‰l$`H‹kH‰l$hH    H‰\$XH    H‰\$PH    H‰$H‹\$0H‰\$H\$`H‰\$H\$PH‰\$è    H    H‹+H‰l$`H‹kH‰l$hH    H‰\$XH    H‰\$PH    H‰$H‹\$0H‰\$H\$`H‰\$H\$PH‰\$è    H    H‹+H‰l$`H‹kH‰l$hH    H‰\$XH    H‰\$PH    H‰$H‹\$0H‰\$H\$`H‰\$H\$PH‰\$è    H    H‹+H‰l$`H‹kH‰l$hH    H‰\$XH    H‰\$PH    H‰$H‹\$0H‰\$H\$`H‰\$H\$PH‰\$è    H    H‹+H‰l$@H‹kH‰l$HH    H‰$è    H‹L$H‰ÏHƒù „•   1Àè    H‰L$8H‰$Hƒ<$ tuH‹\$@H‰\$H‹\$HH‰\$è    H‹D$8H    H‰$H‰D$è    H‹    H‰$H‹\$0H‰\$è    H‹5    H‰4$H5    Hl$H‰ïH¥H¥è    HƒÄpÃ‰%    ë‚‰édÿÿÿR
-         0runtime.morestack_noctxt   :  4type.text/template.FuncMap   ^  runtime.makemap   v  ,go.string."getMethods"   ¦   "".getMethodsÂ·f   ¾  Ptype.func(reflect.Type) []reflect.Method   Ö  4type.text/template.FuncMap   ¤  $runtime.mapassign1   ²  *go.string."getInputs"   â  "".getInputsÂ·f   ú  Ltype.func(reflect.Type) []reflect.Type   ’  4type.text/template.FuncMap   à  $runtime.mapassign1   î  ,go.string."getOutputs"      "".getOutputsÂ·f   ¶  Ltype.func(reflect.Type) []reflect.Type   Î  4type.text/template.FuncMap   œ  $runtime.mapassign1   ª  <go.string."getInputTypeString"   Ú  0"".getInputTypeStringÂ·f   ò  Ftype.func(int, reflect.Type) string   Š  4type.text/template.FuncMap   Ø  $runtime.mapassign1   æ  2go.string."getTypeString"   –  &"".getTypeStringÂ·f   ®  <type.func(reflect.Type) string   Æ  4type.text/template.FuncMap   ”  $runtime.mapassign1   ¢   go.string."code"   Ò  6type.text/template.Template   ä  "runtime.newobject   –	à  runtime.duffzero   è	  4runtime.writebarrierstring   €
-  "".tmpl   œ
-  .runtime.writebarrierptr   ª
-  "".tmpl   Ğ
-  >text/template.(*Template).Funcs   Ş
-  "".tmpl   ô
-  ""..gostring.1   –  >text/template.(*Template).Parse    à  "".autotmp_0017 o8type.*text/template.Template "".autotmp_0016  8type.*text/template.Template "".autotmp_0015  "type.interface {} "".autotmp_0013  type.string "".autotmp_0012  "type.interface {} "".autotmp_0010  type.string "".autotmp_0009  "type.interface {} "".autotmp_0008  Ltype.func(reflect.Type) []reflect.Type "".autotmp_0007  type.string "".autotmp_0006  "type.interface {} "".autotmp_0004  type.string "".autotmp_0003 ?"type.interface {} "".autotmp_0001 type.string *text/template.nameÂ·2 _type.string "".extraFuncs 4type.text/template.FuncMap à¹ßà ğ 6ş^^^^^„#   .c BI TgclocalsÂ·7c13896baab3273e10662a9a37b348ce TgclocalsÂ·d1c538a53e70350f8ea3ba97cd38062c   Ş/Users/Landy/qbox/qiniutestlandy/src/github.com/smartystreets/assertions/internal/oglemock/generate/generate.goş*"".getInputTypeString  €  úeH‹%    H;awè    ëêHƒìPHÇD$p    HÇD$x    H‹\$hH‰$H‹\$`H‹›Ğ   ÿÓH‹t$hH‹T$`H‹L$XH‹\$HÿËH9Ë…Í   H‰4$H‹š   ÿÓH‹t$hH‹T$`H‹L$X¶\$€û „£   H‰L$H‰4$H‹šˆ   ÿÓH‹L$H‹D$H‰D$HH‰$H‰L$@H‹YPÿÓH‹L$H‹D$H‰L$@H‰$H‰D$HH‰D$è    H‹L$H‹D$H    H,$H‰ïH‰ŞH¥H¥H‰L$0H‰L$H‰D$8H‰D$è    H‹\$ H‰\$pH‹\$(H‰\$xHƒÄPÃH‰L$H‰4$H‹šˆ   ÿÓH‹L$H‹D$H‰L$@H‰$H‰D$HH‰D$è    H‹L$H‹D$H‰L$pH‰D$xHƒÄPÃ
-         0runtime.morestack_noctxt   ‚ 
-      Ü 
-      º 
-      ö 
-      ¶   "".getTypeString   Ø  go.string."..."   ¦  *runtime.concatstring2   € 
-      À   "".getTypeString   P   "".autotmp_0029  type.string "".autotmp_0028  "type.reflect.Type "".autotmp_0027 ?type.string "".autotmp_0026  "type.reflect.Type "".autotmp_0025 "type.reflect.Type "".~r2 0type.string 
-"".ft "type.reflect.Type "".i  type.int   •Ÿ LŸ € ˜,+6£P  A¿ TgclocalsÂ·050f85ac33b0f0999f7021093695afd1 TgclocalsÂ·44568aa369055d8938d809aa5d80843b   Ş/Users/Landy/qbox/qiniutestlandy/src/github.com/smartystreets/assertions/internal/oglemock/generate/generate.goş "".getTypeString  À  ¸eH‹%    H;awè    ëêHƒìHÇD$0    HÇD$8    H‹\$(H‰$H‹\$ H‹›   ÿÓH‹L$H‹D$H‰L$0H‰D$8HƒÄÃ
-         0runtime.morestack_noctxt   ‚ 
-      @0  "".~r1  type.string "".t  "type.reflect.Type 0A/ ` ª,4 
- A TgclocalsÂ·78fd77a07ab543a063c3a3049973febe TgclocalsÂ·3280bececceccd33cb74587feedb1f9f   Ş/Users/Landy/qbox/qiniutestlandy/src/github.com/smartystreets/assertions/internal/oglemock/generate/generate.goş"".getMethods     †eH‹%    HD$¨H;Awè    ëåHìØ   HÇ„$ğ       HÇ„$ø       HÇ„$       H‹œ$è   H‰$H‹œ$à   H‹›Ø   ÿÓH‹D$H    H‰$H‰D$H‰D$`H‰D$è    H‹T$H‹L$ H‹D$(H‰T$pH‰L$xH‰„$€   1ÀH‹l$`H9è’   H‰D$hH‰D$H‹œ$è   H‰$H‹œ$à   H‹›°   ÿÓH\$H¬$ˆ   H‰ïH‰Şè    H    H‰$H‹\$pH‹l$hL‹D$xL9ÅsfHkíPHëH‰\$Hœ$ˆ   H‰\$è    H‹D$hHÿÀH‹l$`H9èŒnÿÿÿH‹\$pH‰œ$ğ   H‹\$xH‰œ$ø   H‹œ$€   H‰œ$   HÄØ   Ãè    
-      *  0runtime.morestack_noctxt   Â 
-      Ö  *type.[]reflect.Method   †  "runtime.makeslice   º 
-      æè  runtime.duffcopy   ô  &type.reflect.Method   à  .runtime.writebarrierfat   ú  $runtime.panicindex   P°  "".autotmp_0034  type.int "".autotmp_0033 Ÿ&type.reflect.Method "".i ßtype.int "".methods Ï*type.[]reflect.Method "".numMethods ïtype.int "".~r1  *type.[]reflect.Method 
-"".it  "type.reflect.Type "°Ù¯°  $²F"@|2  a|RM TgclocalsÂ·29a9cc75b4714e357beb2526692d9c14 TgclocalsÂ·7e8b663323aa9dcf8e6a54a4302486f0   Ş/Users/Landy/qbox/qiniutestlandy/src/github.com/smartystreets/assertions/internal/oglemock/generate/generate.goş"".getInputs     –eH‹%    H;awè    ëêHƒìhHÇ„$€       HÇ„$ˆ       HÇ„$       H‹\$xH‰$H‹\$pH‹›Ğ   ÿÓH‹D$H    H‰$H‰D$H‰D$0H‰D$è    H‹T$H‹L$ H‹D$(H‰T$PH‰L$XH‰D$`1ÀH‹l$0H9è}uH‰D$8H‰D$H‹\$xH‰$H‹\$pH‹›ˆ   ÿÓH‹L$H‹D$H‹\$PH‹l$8L‹D$XL9ÅsbHkíHëH‰$H‰L$@H‰L$H‰D$HH‰D$è    H‹D$8HÿÀH‹l$0H9è|‹H‹\$PH‰œ$€   H‹\$XH‰œ$ˆ   H‹\$`H‰œ$   HƒÄhÃè    
-         0runtime.morestack_noctxt   ¦ 
-      º  &type.[]reflect.Type   ê  "runtime.makeslice   „ 
-      „  2runtime.writebarrieriface   Š  $runtime.panicindex   PĞ  "".autotmp_0038  type.int "".autotmp_0037 O"type.reflect.Type "".i _type.int "".inputs /&type.[]reflect.Type "".numIn otype.int "".~r1  &type.[]reflect.Type 
-"".ft  "type.reflect.Type Ğ©ÏĞ Ğ $È>=c,  So‚ TgclocalsÂ·3ec476bd53bd6807ac364023b9253dc0 TgclocalsÂ·8fa29ee887a28e81685dfc20ee7951b4   Ş/Users/Landy/qbox/qiniutestlandy/src/github.com/smartystreets/assertions/internal/oglemock/generate/generate.goş"".getOutputs     –eH‹%    H;awè    ëêHƒìhHÇ„$€       HÇ„$ˆ       HÇ„$       H‹\$xH‰$H‹\$pH‹›à   ÿÓH‹D$H    H‰$H‰D$H‰D$0H‰D$è    H‹T$H‹L$ H‹D$(H‰T$PH‰L$XH‰D$`1ÀH‹l$0H9è}uH‰D$8H‰D$H‹\$xH‰$H‹\$pH‹›è   ÿÓH‹L$H‹D$H‹\$PH‹l$8L‹D$XL9ÅsbHkíHëH‰$H‰L$@H‰L$H‰D$HH‰D$è    H‹D$8HÿÀH‹l$0H9è|‹H‹\$PH‰œ$€   H‹\$XH‰œ$ˆ   H‹\$`H‰œ$   HƒÄhÃè    
-         0runtime.morestack_noctxt   ¦ 
-      º  &type.[]reflect.Type   ê  "runtime.makeslice   „ 
-      „  2runtime.writebarrieriface   Š  $runtime.panicindex   PĞ  "".autotmp_0042  type.int "".autotmp_0041 O"type.reflect.Type "".i _type.int "".outputs /&type.[]reflect.Type "".numOut otype.int "".~r1  &type.[]reflect.Type 
-"".ft  "type.reflect.Type Ğ©ÏĞ Ğ $Ş>=c,  So‚ TgclocalsÂ·3ec476bd53bd6807ac364023b9253dc0 TgclocalsÂ·8fa29ee887a28e81685dfc20ee7951b4   Ş/Users/Landy/qbox/qiniutestlandy/src/github.com/smartystreets/assertions/internal/oglemock/generate/generate.goş&"".addImportForType  À  ªeH‹%    HD$ØH;Awè    ëåHì¨   H‹œ$À   H‰$H‹œ$¸   H‹›ğ   ÿÓH‹L$H‹D$H‰L$0H‰D$8Hƒø uHÄ¨   Ã1ÉH    H‰D$@H‰$H‰L$HH‰L$è    H‹L$H‹D$H‰D$xH‰$H‰L$pH‹YPÿÓH‹”$¸   H‹D$H‹L$H9ÂuDH‰$H‹¬$À   H‰l$H‰D$`H‰D$H‰L$hH‰L$è    H‹”$¸   ¶\$ €û tHÄ¨   ÃH‹œ$À   H‰$H‹š   ÿÓH‹L$H‹D$H‹    H‰$H‰Œ$€   H‰L$H‰„$ˆ   H‰D$è    H‹D$H‹T$ H‹L$(H‰Œ$    Hƒø uHÄ¨   ÃH‹\$0H‰\$PH‹\$8H‰\$XH    H‰$H‹œ$°   H‰\$H‰ÃH‰„$   HƒúH‰”$˜   v HƒÃH‰\$H\$PH‰\$è    HÄ¨   Ãè    
-      *  0runtime.morestack_noctxt   z 
-      Ì  type.*error   ü  reflect.TypeOf   ¼ 
-      º  runtime.ifaceeq   œ 
-      º  <"".typePackageIdentifierRegexp   €  Fregexp.(*Regexp).FindStringSubmatch   €  "type."".importMap   „  $runtime.mapassign1     $runtime.panicindex   0Ğ  "".autotmp_0049 ¯type.string "".autotmp_0047  type.string "".autotmp_0046 "type.reflect.Type "".autotmp_0045 o"type.reflect.Type "".autotmp_0043 Otype.string "".match /type.[]string "".pkgPath ïtype.string "".t "type.reflect.Type "".imports  "type."".importMap >"Ğ>ÏĞ™ÏĞmÏĞdÏĞ à :‚",`]  =@Ä TgclocalsÂ·a49678751e206b1c1bf490d4b4b09d60 TgclocalsÂ·d90c4a34906c33c9865d28ef1b28e896   Ş/Users/Landy/qbox/qiniutestlandy/src/github.com/smartystreets/assertions/internal/oglemock/generate/generate.goş("".addImportsForType  à	  Î	eH‹%    H;awè    ëêHƒì@H‹\$HH‰$H‹\$PH‰\$H‹\$XH‰\$è    H‹\$XH‰$H‹\$PH‹›    ÿÓH‹T$PH‹L$XH‹D$Hƒø‡^  Hƒøu;H‰$H‹ZPÿÓH‹L$H‹D$H‹\$HH‰$H‰L$0H‰L$H‰D$8H‰D$è    HƒÄ@ÃHƒøt¿HƒøuïHÇD$     H‰$H‹šĞ   ÿÓH‹L$ H‹D$H9Á}aH‰L$H‹\$XH‰$H‹\$PH‹›ˆ   ÿÓH‹L$H‹D$H‹\$HH‰$H‰L$0H‰L$H‰D$8H‰D$è    H‹T$PH‹L$XH‹\$ HÿÃH‰\$ ëƒHÇD$(    H‹\$XH‰$H‹\$PH‹›à   ÿÓH‹L$(H‹D$H9Á}WH‰L$H‹\$XH‰$H‹\$PH‹›è   ÿÓH‹L$H‹D$H‹\$HH‰$H‰L$0H‰L$H‰D$8H‰D$è    H‹\$(HÿÃH‰\$(ëƒéŞşÿÿHƒøu~H‰$H‹š˜   ÿÓH‹L$H‹D$H‹\$HH‰$H‰L$0H‰L$H‰D$8H‰D$è    H‹\$XH‰$H‹\$PH‹[PÿÓH‹L$H‹D$H‹\$HH‰$H‰L$0H‰L$H‰D$8H‰D$è    éZşÿÿHƒø„şÿÿHƒø„şÿÿéAşÿÿ 
-         0runtime.morestack_noctxt   p  &"".addImportForType   ¢ 
-      ô 
-      È  ("".addImportsForType   š 
-      ğ 
-      Ä  ("".addImportsForType   º 
-       
-      ä  ("".addImportsForType   ¶ 
-      Š  ("".addImportsForType   ¶ 
-      Š	  ("".addImportsForType   0€  "".autotmp_0061  "type.reflect.Type "".autotmp_0060  "type.reflect.Type "".autotmp_0059  type.int "".autotmp_0058  "type.reflect.Type "".autotmp_0057  type.int "".autotmp_0055  "type.reflect.Type "".autotmp_0054  type.int "".autotmp_0053 "type.reflect.Type "".i /type.int "".i ?type.int "".t "type.reflect.Type "".imports  "type."".importMap €’€Ã ğ X¼"06"#%R
-/H9@!  7¹ TgclocalsÂ·284bdeb7a59f773ab3ee5877f5a03aa1 TgclocalsÂ·d64e51a4c4bfeaa840e480961ec6b0b3   Ş/Users/Landy/qbox/qiniutestlandy/src/github.com/smartystreets/assertions/internal/oglemock/generate/generate.goş@"".addImportsForInterfaceMethods  à  ŞeH‹%    H„$xÿÿÿH;Awè    ëâHì  HÇD$`    H‹œ$   H‰$H‹œ$  H‹›Ø   ÿÓH‹T$`H‹D$H9Â‰   H‰T$H‹œ$   H‰$H‹œ$  H‹›°   ÿÓH\$H¬$¸   H‰ïH‰Şè    Hœ$¸   Hl$hH‰ïH‰Şè    H‹´$  H‰4$H´$ˆ   Hl$H‰ïH¥H¥è    H‹\$`HÿÃH‰\$`éGÿÿÿHÄ  Ã
-      0  0runtime.morestack_noctxt   ’ 
-      ü 
-      ¨è  runtime.duffcopy   Øè  runtime.duffcopy   ¢  ("".addImportsForType   0  "".autotmp_0064 Ÿ&type.reflect.Method "".autotmp_0063  type.int "".m ¿&type.reflect.Method "".i Ïtype.int 
-"".it "type.reflect.Type "".imports  "type."".importMap %É ğ ô%9R%	  I§ TgclocalsÂ·284bdeb7a59f773ab3ee5877f5a03aa1 TgclocalsÂ·b6e90099b100850d21c9757acc07e896   Ş/Users/Landy/qbox/qiniutestlandy/src/github.com/smartystreets/assertions/internal/oglemock/generate/generate.goş"".getImports  à
-  Ò
-eH‹%    HD$èH;Awè    ëåHì˜   H    H‰$HÇD$    è    H‹\$H‰\$0H‹”$    H‹„$¨   H‹œ$°   H‰œ$   1ÉH‰„$ˆ   H‰D$ H‰”$€   H‰ĞH‹l$ H9éˆ   H‰D$8Hƒø „  H‹H‹hH‰L$(H‰T$PH‰l$XH‹\$0H‰$H‰T$@H‰T$H‰l$HH‰l$è    H‹\$0H‰$H‹\$@H‰\$H‹\$HH‰\$è    H‹D$8H‹L$(HƒÀHÿÁH‹l$ H9éŒxÿÿÿH    H‹+H‰l$pH‹kH‰l$xH    H‹+H‰l$`H‹kH‰l$hH    H‰$H‹\$0H‰\$H\$pH‰\$H\$`H‰\$è    H    H‹+H‰l$pH‹kH‰l$xH    H‹+H‰l$`H‹kH‰l$hH    H‰$H‹\$0H‰\$H\$pH‰\$H\$`H‰\$è    H    H‹+H‰l$pH‹kH‰l$xH    H‹+H‰l$`H‹kH‰l$hH    H‰$H‹\$0H‰\$H\$pH‰\$H\$`H‰\$è    H    H‹+H‰l$pH‹kH‰l$xH    H‹+H‰l$`H‹kH‰l$hH    H‰$H‹\$0H‰\$H\$pH‰\$H\$`H‰\$è    H‹\$0H‰œ$¸   HÄ˜   Ã‰ éóıÿÿ,
-      *  0runtime.morestack_noctxt   J  "type."".importMap   n  runtime.makemap      &"".addImportForType   ä  @"".addImportsForInterfaceMethods   °  go.string."fmt"   à  go.string."fmt"     "type."".importMap   Ş  $runtime.mapassign1   ì  (go.string."oglemock"   œ  ‚go.string."github.com/smartystreets/assertions/internal/oglemock"   Ì  "type."".importMap   š  $runtime.mapassign1   ¨  &go.string."runtime"   Ø  &go.string."runtime"   ˆ  "type."".importMap   Ö  $runtime.mapassign1   ä  $go.string."unsafe"   ”	  $go.string."unsafe"   Ä	  "type."".importMap   ’
-  $runtime.mapassign1   @°  """.autotmp_0079 "type.reflect.Type "".autotmp_0078 ¿$type.*reflect.Type "".autotmp_0077 ïtype.int "".autotmp_0076 ßtype.int "".autotmp_0075  type.string "".autotmp_0074  type.string "".autotmp_0073  type.string "".autotmp_0072  type.string "".autotmp_0071  type.string "".autotmp_0070  type.string "".autotmp_0069 otype.string "".autotmp_0068 Otype.string "".autotmp_0067 /&type.[]reflect.Type 
-"".it ¯"type.reflect.Type "".imports Ï"type."".importMap "".~r1 0"type."".importMap "".interfaces  &type.[]reflect.Type "°ÿ¯° ° 4Š"#m""^^^^  6™"}Â TgclocalsÂ·afd56e89fe406cd8321967b6f2c293ef TgclocalsÂ·e9755f7f6c641838eea880c7343a2cc4   Ş/Users/Landy/qbox/qiniutestlandy/src/github.com/smartystreets/assertions/internal/oglemock/generate/generate.goş*"".GenerateMockSource  à+  Ö+eH‹%    H„$@şÿÿH;Awè    ëâHì@  HÇ„$€      HÇ„$ˆ      H‹œ$`  Hƒû …ú   H    H‹+H‰¬$  H‹kH‰¬$  HÇ„$È       HÇ„$Ğ       H    H‰$è    H‹D$H‰„$   H‰$Hƒ<$ „Œ   H‹œ$  H‰\$H‹œ$  H‰\$è    H‹œ$   H‰œ$   H‹    1íH9èt H‹Œ$   H‰„$€  H‰Œ$ˆ  HÄ@  ÃH    H‰$H    H‰\$H    H‰\$è    H‹D$ë±‰%    éhÿÿÿH‹œ$p  Hƒû …ú   H    H‹+H‰¬$ø   H‹kH‰¬$   HÇ„$¨       HÇ„$°       H    H‰$è    H‹D$H‰„$   H‰$Hƒ<$ „Œ   H‹œ$ø   H‰\$H‹œ$   H‰\$è    H‹œ$   H‰œ$   H‹    1íH9èt H‹”$   H‰„$€  H‰”$ˆ  HÄ@  ÃH    H‰$H    H‰\$H    H‰\$è    H‹D$ë±‰%    éhÿÿÿH‹”$h  H‹„$p  H‹œ$x  H‰œ$Ø  1ÉH‰„$Ğ  H‰D$HH‰”$È  H‰ĞH‹l$HH9éİ  H‰„$€   Hƒø „5  H‹H‹hH‰L$PH‰”$¨  H‰¬$°  H‰¬$P  H‰,$H‰”$H  H‹š    ÿÓH‹\$Hƒû„a  H‹œ$P  H‰$H‹œ$H  H‹›   ÿÓH‹L$H‹D$H    H,$H‰ïH‰ŞH¥H¥H‰Œ$¸  H‰L$H‰„$À  H‰D$è    H‹L$ H‹D$(H‰Œ$˜  H‰Œ$(  H‰„$   H‰„$0  HÇ„$¸       HÇ„$À       H    H‰$è    H‹D$H‰„$   H‰$Hƒ<$ „Œ   H‹œ$(  H‰\$H‹œ$0  H‰\$è    H‹œ$   H‰œ$   H‹    1íH9èt H‹”$   H‰„$€  H‰”$ˆ  HÄ@  ÃH    H‰$H    H‰\$H    H‰\$è    H‹D$ë±‰%    éhÿÿÿH‹„$€   H‹L$PHƒÀHÿÁH‹l$HH9éŒ#şÿÿH¼$  1Àè    H‹œ$X  H‰œ$  H‹œ$`  H‰œ$  H‹œ$h  H‰$H‹œ$p  H‰\$H‹œ$x  H‰\$è    H‹\$H‰œ$   H‹œ$h  H‰œ$(  H‹œ$p  H‰œ$0  H‹œ$x  H‰œ$8  H    H‰$è    H‹D$H‰D$xH‰„$˜   Hœ$  H¬$à  H‰ïH‰Şè    H‹    H‰„$ˆ   1íH9è„B  H    H‰$Hœ$à  H‰\$è    H\$Hl$H‰ïH‰ŞıHƒÆHƒÇHÇÁ   óH¥üH‹    H‰$H‹Œ$˜   H‹„$ˆ   H‰„$ˆ  H‰D$H‰Œ$  H‰L$è    H‹D$(H‹L$0H‰Œ$`  Hƒø H‰„$X  tH‰„$€  H‰Œ$ˆ  HÄ@  ÃH    H‰$è    H‹|$H‰ùHƒÿ „f  1Àè    HÇA   H‰L$pH‹\$xH‰œ$˜   H‹œ$X  H‰$H‹´$`  H‰t$H5    Hl$H‰ïH¥H¥è    H\$ Hl$H‰ïH‰ŞH¥H¥H‹\$pH‰$H‹Œ$˜   H    H‰„$x  H‰D$H‰Œ$€  H‰L$ HÇD$(   è    H‹T$0H‹D$8H‹\$@H‰œ$p  Hƒø H‰„$h  „N  H‰$H‹X ÿÓH‹L$H‹D$H    H,$H‰ïH‰ŞH¥H¥H‰Œ$¸  H‰L$H‰„$À  H‰D$è    H‹L$ H‹D$(H‰Œ$˜  H‰Œ$  H‰„$   H‰„$   HÇ„$Ø       HÇ„$à       H    H‰$è    H‹D$H‰„$   H‰$Hƒ<$ „Œ   H‹œ$  H‰\$H‹œ$   H‰\$è    H‹œ$   H‰œ$   H‹    1íH9èt H‹”$   H‰„$€  H‰”$ˆ  HÄ@  ÃH    H‰$H    H‰\$H    H‰\$è    H‹D$ë±‰%    éhÿÿÿH‹\$pH‰$H‰”$    H‰T$è    HÇD$X    HÇD$`    HÇD$h    H\$XHÇ    HÇC    HÇC    HÇ   HÇC   H‹Œ$    H‰$H‹œ$H  H‰\$H‹œ$P  H‰\$H‹\$pH‰\$H    H‰„$x  H‰D$ H‰Œ$€  H‰L$(è    H‹D$0H‹L$8Hƒø „^  H‰Œ$p  H‰$H‰„$h  H‹X ÿÓH‹L$H‹D$H    H,$H‰ïH‰ŞH¥H¥H‰Œ$˜  H‰L$H‰„$   H‰D$è    H‹L$ H‹D$(H‰Œ$¸  H‰Œ$8  H‰„$À  H‰„$@  HÇ„$è       HÇ„$ğ       H    H‰$è    H‹D$H‰„$   H‰$Hƒ<$ „Œ   H‹œ$8  H‰\$H‹œ$@  H‰\$è    H‹œ$   H‰œ$   H‹    1íH9èt H‹”$   H‰„$€  H‰”$ˆ  HÄ@  ÃH    H‰$H    H‰\$H    H‰\$è    H‹D$ë±‰%    éhÿÿÿHÇ„$€      HÇ„$ˆ      HÄ@  Ã‰é“ûÿÿH    H‰$H    H‰\$H    H‰\$è    H‹\$H‰œ$ˆ   é„úÿÿ‰ éÄ÷ÿÿœ
-      0  0runtime.morestack_noctxt   ¤  Vgo.string."Package name must be non-empty."     .type.errors.errorString   ¢  "runtime.newobject   ˜  4runtime.writebarrierstring   Æ  Bgo.itab.*errors.errorString.error   ¢  0type.*errors.errorString   ¸  type.error   Ğ  Bgo.itab.*errors.errorString.error   ä   runtime.typ2Itab   ¼  bgo.string."List of interfaces must be non-empty."   ¨  .type.errors.errorString   º  "runtime.newobject   °  4runtime.writebarrierstring   Ş  Bgo.itab.*errors.errorString.error   º  0type.*errors.errorString   Ğ  type.error   è  Bgo.itab.*errors.errorString.error   ü   runtime.typ2Itab   Ì 
-      ¤ 
-      Â  4go.string."Invalid type: "   œ  *runtime.concatstring2   ®  .type.errors.errorString   À  "runtime.newobject   ¶  4runtime.writebarrierstring   ä  Bgo.itab.*errors.errorString.error   À  0type.*errors.errorString   Ö  type.error   î  Bgo.itab.*errors.errorString.error   ‚   runtime.typ2Itab   Šè  runtime.duffzero      "".getImports   ¨  "type.bytes.Buffer   º  "runtime.newobject   ”Ø  runtime.duffcopy   ¢  >go.itab.*bytes.Buffer.io.Writer   Ö  type."".tmplArg   ‚  runtime.convT2E   Ø  "".tmpl   ¾  Btext/template.(*Template).Execute   ¼  *type.go/token.FileSet   Î  "runtime.newobject   €à  runtime.duffzero   ô  go.string.".go"   –  *runtime.concatstring2   î  $type.*bytes.Buffer   ¾  &go/parser.ParseFile   ¨ 
-      Æ  Tgo.string."Error parsing generated code: "      *runtime.concatstring2   ²  .type.errors.errorString   Ä  "runtime.newobject   º  4runtime.writebarrierstring   è  Bgo.itab.*errors.errorString.error   Ä   0type.*errors.errorString   Ú   type.error   ò   Bgo.itab.*errors.errorString.error   †!   runtime.typ2Itab   â!  $go/ast.SortImports   Ü#  "type.*go/ast.File   š$  6go/printer.(*Config).Fprint   ú$ 
-      ˜%  Fgo.string."Error pretty printing: "   ò%  *runtime.concatstring2   „'  .type.errors.errorString   –'  "runtime.newobject   Œ(  4runtime.writebarrierstring   º(  Bgo.itab.*errors.errorString.error   –)  0type.*errors.errorString   ¬)  type.error   Ä)  Bgo.itab.*errors.errorString.error   Ø)   runtime.typ2Itab   Ú*  $type.*bytes.Buffer   ğ*  type.io.Writer   ˆ+  >go.itab.*bytes.Buffer.io.Writer   œ+   runtime.typ2Itab   €	  z"".autotmp_0125  type.*uint8 "".autotmp_0124  type.error "".autotmp_0123  0type.*errors.errorString "".autotmp_0122  type.string "".autotmp_0121 Ï,type.go/printer.Config "".autotmp_0119  type.*uint8 "".autotmp_0118  type.error "".autotmp_0117  0type.*errors.errorString "".autotmp_0116  type.string "".autotmp_0114  ,type.*go/token.FileSet "".autotmp_0113  type.*uint8 "".autotmp_0112  type.*uint8 "".autotmp_0111  type.error "".autotmp_0110  0type.*errors.errorString "".autotmp_0109 Ïtype.string "".autotmp_0108 ¯"type.reflect.Type "".autotmp_0107 ÿ$type.*reflect.Type "".autotmp_0106 ïtype.int "".autotmp_0105  type.int "".autotmp_0104  type.*uint8 "".autotmp_0103  type.error "".autotmp_0102  0type.*errors.errorString "".autotmp_0101 ïtype.*uint8 "".autotmp_0099 ß0type.*errors.errorString "".autotmp_0098  0type.*errors.errorString "".autotmp_0097  type.string "".autotmp_0096  type.error "".autotmp_0094  0type.*errors.errorString "".autotmp_0093  type.string "".autotmp_0092  $type.*bytes.Buffer "".autotmp_0091  type.error "".autotmp_0090 ¿type."".tmplArg "".autotmp_0089  $type.*bytes.Buffer "".autotmp_0088 Ï$type.*bytes.Buffer "".autotmp_0086  0type.*errors.errorString "".autotmp_0085 type.string "".autotmp_0083 ï&type.[]reflect.Type "".autotmp_0082  0type.*errors.errorString "".autotmp_0081 ßtype.int "".autotmp_0080  0type.*errors.errorString "".~r0 ¯type.error errors.textÂ·2 type.string "".~r0 Ïtype.error errors.textÂ·2 Ïtype.string "".~r0 type.error errors.textÂ·2 ¯type.string "".~r0 ¯type.error errors.textÂ·2 type.string "".~r0 ïtype.error errors.textÂ·2 ïtype.string "".err ¯type.error "".astFile ¿"type.*go/ast.File "".fset Ÿ,type.*go/token.FileSet "".err Ïtype.error "".buf $type.*bytes.Buffer "".arg _type."".tmplArg 
-"".it ï"type.reflect.Type "".~r3 ptype.error "".interfaces @&type.[]reflect.Type "".pkg  type.string "".w  type.io.Writer l%€	èÿ€	‹ÿ€	‚ÿ€	ıÿ€	ƒÿ€	¨ÿ€	Zÿ€	M ğ ‚°=úúv,á" 80İ6©Î
-FjŞ %	: t ;Ñ;,
-;õ±^HdT6;”œ¾;È
-# TgclocalsÂ·fc5b23e9b6cda500d6e1d6fb6f203f9a TgclocalsÂ·11f8f815de0b03cd3773e4dde282175d   Ş/Users/Landy/qbox/qiniutestlandy/src/github.com/smartystreets/assertions/internal/oglemock/generate/generate.goş"".init  €  îeH‹%    H;awè    ëêHƒì¶    €û t¶    €ûuHƒÄÃè    Æ    è    è    è    è    è    è    è    è    è    H    H,$H‰ïH‰ŞH¥H¥è    H‹D$H    H‰$H‰D$è    è    Æ    HƒÄÃ*
-         0runtime.morestack_noctxt   :  "".initdoneÂ·   R  "".initdoneÂ·   p  "runtime.throwinit   € "".initdoneÂ·   Œ  $text/template.init   –  regexp.init      reflect.init   ª  io.init   ´  go/token.init   ¾  go/printer.init   È  go/parser.init   Ò  go/ast.init   Ü  bytes.init   ê  Rgo.string."^([\\pL_0-9]+)\\.[\\pL_0-9]+$"     $regexp.MustCompile   ¨  <"".typePackageIdentifierRegexp   Ä  .runtime.writebarrierptr   Î  "".initÂ·1   Ú "".initdoneÂ·    0   0/0/
- À ”r—4˜  7‰ TgclocalsÂ·3280bececceccd33cb74587feedb1f9f TgclocalsÂ·3280bececceccd33cb74587feedb1f9f   Ş/Users/Landy/qbox/qiniutestlandy/src/github.com/smartystreets/assertions/internal/oglemock/generate/generate.goş(type..hash.[8]string à  ÎeH‹%    H;awè    ëêHƒì0H‹L$H1ÀHÇD$    H‹l$ H9è}eH‰D$(H‰ÅH‰ÈHÁÀH»¿c»kïR H¯ØH‰ØH‹\$8Hƒû tDHkíHëH‰$HÇD$   H‰D$HH‰D$è    H‹L$H‹D$(HÿÀH‹l$ H9è|›H‰L$PHƒÄ0Ã‰ë¸
-         0runtime.morestack_noctxt   ü  runtime.strhash   @`  "".autotmp_0140 type.int "".autotmp_0139 type.int "".~r3 0type.uintptr "".h  type.uintptr "".s type.uintptr "".p  type.*[8]string `ˆ_` ° ° 
- }3 TgclocalsÂ·2dc77d960dd3e4b3de2361f9cbd75783 TgclocalsÂ·3280bececceccd33cb74587feedb1f9f   Ş/Users/Landy/qbox/qiniutestlandy/src/github.com/smartystreets/assertions/internal/oglemock/generate/generate.goş$type..eq.[8]string à  ÈeH‹%    H;awè    ëêHƒìX1ÀHÇD$(   H‹l$(H9è’   H‰D$0H‹\$`Hƒû „–   H‰ÅHkíHëH‹3H‹KH‹\$hHƒû tvH‰ÅHkíHëH‹H‹CH9ÁuVH‰t$HH‰4$H‰L$PH‰L$H‰T$8H‰T$H‰D$@H‰D$è    ¶\$ €û t H‹D$0HÿÀH‹l$(H9èŒnÿÿÿÆD$xHƒÄXÃÆD$x HƒÄXÃ‰ë†‰écÿÿÿ
-         0runtime.morestack_noctxt   Â   runtime.eqstring   @°  "".autotmp_0144 ?type.string "".autotmp_0143 type.string "".autotmp_0142 _type.int "".autotmp_0141 Otype.int "".~r3 0type.bool "".s  type.uintptr "".q type.*[8]string "".p  type.*[8]string &°´¯°	¯° ğ ğ   P TgclocalsÂ·9c703c5c7b9c1932c840b69f8ebce236 TgclocalsÂ·44568aa369055d8938d809aa5d80843b   Ş/Users/Landy/qbox/qiniutestlandy/src/github.com/smartystreets/assertions/internal/oglemock/generate/generate.goş,go.string."getMethods" @  6        
-       getMethods    ,go.string."getMethods"   ş*go.string."getInputs" @  4        	       getInputs    *go.string."getInputs"   ş,go.string."getOutputs" @  6        
-       getOutputs    ,go.string."getOutputs"   ş<go.string."getInputTypeString" P  F               getInputTypeString    <go.string."getInputTypeString"   ş2go.string."getTypeString" @  <               getTypeString    2go.string."getTypeString"   ş go.string."code" 0  *               code     go.string."code"   ş""..gostring.1 ğ  ä        ¡      
-// This file was auto-generated using createmock. See the following page for
-// more information:
-//
-//     https://github.com/smartystreets/assertions/internal/oglemock
-//
-
-package {{.Pkg}}
-
-import (
-	{{range $identifier, $import := .Imports}}{{$identifier}} "{{$import}}"
-	{{end}}
-)
-
-{{range .Interfaces}}
-	{{$interfaceName := printf "Mock%s" .Name}}
-	{{$structName := printf "mock%s" .Name}}
-
-	type {{$interfaceName}} interface {
-		{{getTypeString .}}
-		oglemock.MockObject
-	}
-
-	type {{$structName}} struct {
-		controller oglemock.Controller
-		description string
-	}
-	
-	func New{{printf "Mock%s" .Name}}(
-		c oglemock.Controller,
-		desc string) {{$interfaceName}} {
-	  return &{{$structName}}{
-			controller: c,
-			description: desc,
-		}
-	}
-	
-	func (m *{{$structName}}) Oglemock_Id() uintptr {
-		return uintptr(unsafe.Pointer(m))
-	}
-	
-	func (m *{{$structName}}) Oglemock_Description() string {
-		return m.description
-	}
-
-	{{range getMethods .}}
-	  {{$funcType := .Type}}
-	  {{$inputTypes := getInputs $funcType}}
-	  {{$outputTypes := getOutputs $funcType}}
-
-		func (m *{{$structName}}) {{.Name}}({{range $i, $type := $inputTypes}}p{{$i}} {{getInputTypeString $i $funcType}}, {{end}}) ({{range $i, $type := $outputTypes}}o{{$i}} {{getTypeString $type}}, {{end}}) {
-			// Get a file name and line number for the caller.
-			_, file, line, _ := runtime.Caller(1)
-
-			// Hand the call off to the controller, which does most of the work.
-			retVals := m.controller.HandleMethodCall(
-				m,
-				"{{.Name}}",
-				file,
-				line,
-				[]interface{}{ {{range $i, $type := $inputTypes}}p{{$i}}, {{end}} })
-
-			if len(retVals) != {{len $outputTypes}} {
-				panic(fmt.Sprintf("{{$structName}}.{{.Name}}: invalid return values: %v", retVals))
-			}
-
-			{{range $i, $type := $outputTypes}}
-				// o{{$i}} {{getTypeString $type}}
-				if retVals[{{$i}}] != nil {
-					o{{$i}} = retVals[{{$i}}].({{getTypeString $type}})
-				}
-			{{end}}
-
-			return
-		}
-	{{end}}
-{{end}}
-    ""..gostring.1   şTgclocalsÂ·d1c538a53e70350f8ea3ba97cd38062c 8  8          /  "   
-       şTgclocalsÂ·7c13896baab3273e10662a9a37b348ce           şgo.string."..." 0  (               ...    go.string."..."   şTgclocalsÂ·44568aa369055d8938d809aa5d80843b              şTgclocalsÂ·050f85ac33b0f0999f7021093695afd1      
-   -    şTgclocalsÂ·3280bececceccd33cb74587feedb1f9f           şTgclocalsÂ·78fd77a07ab543a063c3a3049973febe             şTgclocalsÂ·7e8b663323aa9dcf8e6a54a4302486f0 0  0             €Èj‚Èj şTgclocalsÂ·29a9cc75b4714e357beb2526692d9c14 0  0   
-                şTgclocalsÂ·8fa29ee887a28e81685dfc20ee7951b4        
-            şTgclocalsÂ·3ec476bd53bd6807ac364023b9253dc0        
-          şTgclocalsÂ·8fa29ee887a28e81685dfc20ee7951b4        
-            şTgclocalsÂ·3ec476bd53bd6807ac364023b9253dc0        
-          şTgclocalsÂ·d90c4a34906c33c9865d28ef1b28e896 (  (                 şTgclocalsÂ·a49678751e206b1c1bf490d4b4b09d60 (  (      .   .   .    şTgclocalsÂ·d64e51a4c4bfeaa840e480961ec6b0b3              şTgclocalsÂ·284bdeb7a59f773ab3ee5877f5a03aa1         .    şTgclocalsÂ·b6e90099b100850d21c9757acc07e896        (            şTgclocalsÂ·284bdeb7a59f773ab3ee5877f5a03aa1         .    şgo.string."fmt" 0  (               fmt    go.string."fmt"   ş(go.string."oglemock" @  2               oglemock    (go.string."oglemock"   ş‚go.string."github.com/smartystreets/assertions/internal/oglemock"   Œ        5       github.com/smartystreets/assertions/internal/oglemock    ‚go.string."github.com/smartystreets/assertions/internal/oglemock"   ş&go.string."runtime" 0  0               runtime    &go.string."runtime"   ş$go.string."unsafe" 0  .               unsafe    $go.string."unsafe"   şTgclocalsÂ·e9755f7f6c641838eea880c7343a2cc4 0  0          º   
-      şTgclocalsÂ·afd56e89fe406cd8321967b6f2c293ef 0  0                   ş,Bgo.itab.*errors.errorString.error     ş,>go.itab.*bytes.Buffer.io.Writer     şVgo.string."Package name must be non-empty." `  `               Package name must be non-empty.    Vgo.string."Package name must be non-empty."   şbgo.string."List of interfaces must be non-empty." p  l        %       List of interfaces must be non-empty.    bgo.string."List of interfaces must be non-empty."   ş4go.string."Invalid type: " @  >               Invalid type:     4go.string."Invalid type: "   şgo.string.".go" 0  (               .go    go.string.".go"   şTgo.string."Error parsing generated code: " `  ^               Error parsing generated code:     Tgo.string."Error parsing generated code: "   şFgo.string."Error pretty printing: " P  P               Error pretty printing:     Fgo.string."Error pretty printing: "   şTgclocalsÂ·11f8f815de0b03cd3773e4dde282175d      t                       €                                               À             €                       ¢            
-   ˆ          
-              
-                                                                                             şTgclocalsÂ·fc5b23e9b6cda500d6e1d6fb6f203f9a         +  +  +  +  +  +  +  +  +  +  +  +  +  +  +  +   şRgo.string."^([\\pL_0-9]+)\\.[\\pL_0-9]+$" `  V               ^([\pL_0-9]+)\.[\pL_0-9]+$    Rgo.string."^([\\pL_0-9]+)\\.[\\pL_0-9]+$"   şTgclocalsÂ·3280bececceccd33cb74587feedb1f9f           şTgclocalsÂ·3280bececceccd33cb74587feedb1f9f           ş*"".tmpl  8type.*text/template.Template   ş*<"".typePackageIdentifierRegexp  &type.*regexp.Regexp   ş,"".initdoneÂ·  type.uint8   ş"".initÂ·1Â·f              "".initÂ·1   ş$runtime.makemapÂ·f              runtime.makemap   ş "".getMethodsÂ·f              "".getMethods   ş*runtime.mapassign1Â·f              $runtime.mapassign1   ş"".getInputsÂ·f              "".getInputs   ş "".getOutputsÂ·f              "".getOutputs   ş0"".getInputTypeStringÂ·f              *"".getInputTypeString   ş&"".getTypeStringÂ·f               "".getTypeString   ş(runtime.newobjectÂ·f              "runtime.newobject   ş:runtime.writebarrierstringÂ·f              4runtime.writebarrierstring   ş4runtime.writebarrierptrÂ·f              .runtime.writebarrierptr   şDtext/template.(*Template).FuncsÂ·f              >text/template.(*Template).Funcs   şDtext/template.(*Template).ParseÂ·f              >text/template.(*Template).Parse   ş0runtime.concatstring2Â·f              *runtime.concatstring2   ş,runtime.throwreturnÂ·f              &runtime.throwreturn   ş(runtime.makesliceÂ·f              "runtime.makeslice   ş*runtime.panicindexÂ·f              $runtime.panicindex   ş4runtime.writebarrierfatÂ·f              .runtime.writebarrierfat   ş8runtime.writebarrierifaceÂ·f              2runtime.writebarrieriface   ş,"".addImportForTypeÂ·f              &"".addImportForType   ş"reflect.TypeOfÂ·f              reflect.TypeOf   ş$runtime.ifaceeqÂ·f              runtime.ifaceeq   şLregexp.(*Regexp).FindStringSubmatchÂ·f              Fregexp.(*Regexp).FindStringSubmatch   ş."".addImportsForTypeÂ·f              ("".addImportsForType   şF"".addImportsForInterfaceMethodsÂ·f              @"".addImportsForInterfaceMethods   ş "".getImportsÂ·f              "".getImports   ş0"".GenerateMockSourceÂ·f              *"".GenerateMockSource   ş&runtime.typ2ItabÂ·f               runtime.typ2Itab   ş$runtime.convT2EÂ·f              runtime.convT2E   şHtext/template.(*Template).ExecuteÂ·f              Btext/template.(*Template).Execute   ş,go/parser.ParseFileÂ·f              &go/parser.ParseFile   ş*go/ast.SortImportsÂ·f              $go/ast.SortImports   ş<go/printer.(*Config).FprintÂ·f              6go/printer.(*Config).Fprint   ş"".initÂ·f              "".init   ş(runtime.throwinitÂ·f              "runtime.throwinit   ş*text/template.initÂ·f              $text/template.init   şregexp.initÂ·f              regexp.init   şreflect.initÂ·f              reflect.init   şio.initÂ·f              io.init   ş go/token.initÂ·f              go/token.init   ş$go/printer.initÂ·f              go/printer.init   ş"go/parser.initÂ·f              go/parser.init   şgo/ast.initÂ·f              go/ast.init   şbytes.initÂ·f              bytes.init   ş*regexp.MustCompileÂ·f              $regexp.MustCompile   şbruntime.gcbits.0x48844400000000000000000000000000     H„D              ş8go.string."[]reflect.Method" P  B               []reflect.Method    8go.string."[]reflect.Method"   ş*type.[]reflect.Method            ÙVµ                                                                     runtime.algarray   0  bruntime.gcbits.0x48844400000000000000000000000000   P  8go.string."[]reflect.Method"   p  <go.weak.type.*[]reflect.Method   €  "runtime.zerovalue     &type.reflect.Method   şZgo.typelink.[]reflect.Method/[]reflect.Method              *type.[]reflect.Method   şbruntime.gcbits.0x88000000000000000000000000000000     ˆ                ş^go.string."func(reflect.Type) []reflect.Method" p  h        #       func(reflect.Type) []reflect.Method    ^go.string."func(reflect.Type) []reflect.Method"   şPtype.func(reflect.Type) []reflect.Method            ¦·mx 3                                                                                                                             €  runtime.algarray   0  bruntime.gcbits.0x88000000000000000000000000000000   P  ^go.string."func(reflect.Type) []reflect.Method"   p  bgo.weak.type.*func(reflect.Type) []reflect.Method   €  "runtime.zerovalue    € Ptype.func(reflect.Type) []reflect.Method   Ğ Ptype.func(reflect.Type) []reflect.Method   €  "type.reflect.Type     *type.[]reflect.Method   ş4go.string."[]reflect.Type" @  >               []reflect.Type    4go.string."[]reflect.Type"   ş&type.[]reflect.Type            %‡.Ì                                                                     runtime.algarray   0  bruntime.gcbits.0x48844400000000000000000000000000   P  4go.string."[]reflect.Type"   p  8go.weak.type.*[]reflect.Type   €  "runtime.zerovalue     "type.reflect.Type   şRgo.typelink.[]reflect.Type/[]reflect.Type              &type.[]reflect.Type   şZgo.string."func(reflect.Type) []reflect.Type" p  d        !       func(reflect.Type) []reflect.Type    Zgo.string."func(reflect.Type) []reflect.Type"   şLtype.func(reflect.Type) []reflect.Type            E„¶ 3                                                                                                                             €  runtime.algarray   0  bruntime.gcbits.0x88000000000000000000000000000000   P  Zgo.string."func(reflect.Type) []reflect.Type"   p  ^go.weak.type.*func(reflect.Type) []reflect.Type   €  "runtime.zerovalue    € Ltype.func(reflect.Type) []reflect.Type   Ğ Ltype.func(reflect.Type) []reflect.Type   €  "type.reflect.Type     &type.[]reflect.Type   şTgo.string."func(int, reflect.Type) string" `  ^               func(int, reflect.Type) string    Tgo.string."func(int, reflect.Type) string"   şFtype.func(int, reflect.Type) string °  °       #Q‰Á 3                                                                                                                                     €  runtime.algarray   0  bruntime.gcbits.0x88000000000000000000000000000000   P  Tgo.string."func(int, reflect.Type) string"   p  Xgo.weak.type.*func(int, reflect.Type) string   €  "runtime.zerovalue    € Ftype.func(int, reflect.Type) string   Ğ  Ftype.func(int, reflect.Type) string   €  type.int     "type.reflect.Type      type.string   şJgo.string."func(reflect.Type) string" `  T               func(reflect.Type) string    Jgo.string."func(reflect.Type) string"   ş<type.func(reflect.Type) string            ™v 3                                                                                                                             €  runtime.algarray   0  bruntime.gcbits.0x88000000000000000000000000000000   P  Jgo.string."func(reflect.Type) string"   p  Ngo.weak.type.*func(reflect.Type) string   €  "runtime.zerovalue    € <type.func(reflect.Type) string   Ğ <type.func(reflect.Type) string   €  "type.reflect.Type     type.string   şbruntime.gcbits.0xcc000000000000000000000000000000     Ì                ş0go.string."interface {}" @  :               interface {}    0go.string."interface {}"   ş"type.interface {} À  À       çW                                                                                   €  runtime.algarray   0  bruntime.gcbits.0xcc000000000000000000000000000000   P  0go.string."interface {}"   p  4go.weak.type.*interface {}   €  "runtime.zerovalue   À "type.interface {}   şJgo.string."*map.bucket[string]string" `  T               *map.bucket[string]string    Jgo.string."*map.bucket[string]string"   ş<type.*map.bucket[string]string            ¦te 6                                                                    runtime.algarray   0  bruntime.gcbits.0x88000000000000000000000000000000   P  Jgo.string."*map.bucket[string]string"   p  Ngo.weak.type.**map.bucket[string]string   €  "runtime.zerovalue     :type.map.bucket[string]string   ş(go.string."[]string" @  2               []string    (go.string."[]string"   ştype.[]string            Ó¨ó
-                                                                     runtime.algarray   0  bruntime.gcbits.0x48844400000000000000000000000000   P  (go.string."[]string"   p  ,go.weak.type.*[]string   €  "runtime.zerovalue     type.string   ş:go.typelink.[]string/[]string              type.[]string   şTgclocalsÂ·3280bececceccd33cb74587feedb1f9f           şTgclocalsÂ·2dc77d960dd3e4b3de2361f9cbd75783             şTgclocalsÂ·44568aa369055d8938d809aa5d80843b              şTgclocalsÂ·9c703c5c7b9c1932c840b69f8ebce236             ş0type..hashfunc.[8]string              (type..hash.[8]string   ş,type..eqfunc.[8]string              $type..eq.[8]string   ş&type..alg.[8]string                        0type..hashfunc.[8]string     ,type..eqfunc.[8]string   şbruntime.gcbits.0x48484848484848480000000000000000     HHHHHHHH         ş*go.string."[8]string" @  4        	       [8]string    *go.string."[8]string"   ştype.[8]string À  À€       USŒ>                                                                                     &type..alg.[8]string   0  bruntime.gcbits.0x48484848484848480000000000000000   P  *go.string."[8]string"   p  .go.weak.type.*[8]string   €  "runtime.zerovalue     type.string      type.[]string   ş>go.typelink.[8]string/[8]string              type.[8]string   ş,Btype..gc.map.bucket[string]string $    şJtype..gcprog.map.bucket[string]string   "ifffffff şHgo.string."map.bucket[string]string" `  R               map.bucket[string]string    Hgo.string."map.bucket[string]string"   ş(go.string."overflow" @  2               overflow    (go.string."overflow"   ş go.string."keys" 0  *               keys     go.string."keys"   ş$go.string."values" 0  .               values    $go.string."values"   ş:type.map.bucket[string]string °  °      Ş>   Y                                                                                                                                                                                                    à  runtime.algarray   0  Btype..gc.map.bucket[string]string   @  Jtype..gcprog.map.bucket[string]string   P  Hgo.string."map.bucket[string]string"   p  Lgo.weak.type.*map.bucket[string]string   €  "runtime.zerovalue   À :type.map.bucket[string]string   À  (go.string."overflow"   à  <type.*map.bucket[string]string      go.string."keys"   °  type.[8]string   à  $go.string."values"   €  type.[8]string   şbruntime.gcbits.0x44844800000000000000000000000000     D„H              şBgo.string."map.hdr[string]string" P  L               map.hdr[string]string    Bgo.string."map.hdr[string]string"   ş&go.string."buckets" 0  0               buckets    &go.string."buckets"   ş,go.string."oldbuckets" @  6        
-       oldbuckets    ,go.string."oldbuckets"   ş4type.map.hdr[string]string à  à0       Ïmlh                                                                                                                                                                 à  runtime.algarray   0  bruntime.gcbits.0x44844800000000000000000000000000   P  Bgo.string."map.hdr[string]string"   p  Fgo.weak.type.*map.hdr[string]string   €  "runtime.zerovalue   À 4type.map.hdr[string]string   À  &go.string."buckets"   à  <type.*map.bucket[string]string     ,go.string."oldbuckets"   °  <type.*map.bucket[string]string   ş>go.string."*generate.importMap" P  H               *generate.importMap    >go.string."*generate.importMap"   ş$type.*"".importMap             úÔ 6                                                                    runtime.algarray   0  bruntime.gcbits.0x88000000000000000000000000000000   P  >go.string."*generate.importMap"   p  6go.weak.type.**"".importMap   €  "runtime.zerovalue     "type."".importMap   ş<go.string."generate.importMap" P  F               generate.importMap    <go.string."generate.importMap"   ş*go.string."importMap" @  4        	       importMap    *go.string."importMap"   ş"type."".importMap  °  °       6R±O 5                                                                                                                                     €  runtime.algarray   0  bruntime.gcbits.0x88000000000000000000000000000000   P  <go.string."generate.importMap"   p  $type.*"".importMap   €  "runtime.zerovalue     type.string      type.string   °  :type.map.bucket[string]string   À  4type.map.hdr[string]string   `à "type."".importMap   à  *go.string."importMap"   ğ  "go.importpath."".   €° "type."".importMap   ş:go.string."*generate.tmplArg" P  D               *generate.tmplArg    :go.string."*generate.tmplArg"   ş type.*"".tmplArg             CÍÉX 6                                                                    runtime.algarray   0  bruntime.gcbits.0x88000000000000000000000000000000   P  :go.string."*generate.tmplArg"   p  2go.weak.type.**"".tmplArg   €  "runtime.zerovalue     type."".tmplArg   şbruntime.gcbits.0x48884400000000000000000000000000     HˆD              ş8go.string."generate.tmplArg" P  B               generate.tmplArg    8go.string."generate.tmplArg"   şgo.string."Pkg" 0  (               Pkg    go.string."Pkg"   ş&go.string."Imports" 0  0               Imports    &go.string."Imports"   ş,go.string."Interfaces" @  6        
-       Interfaces    ,go.string."Interfaces"   ş&go.string."tmplArg" 0  0               tmplArg    &go.string."tmplArg"   ştype."".tmplArg  €  €0       Í¿6                                                                                                                                                                                                                                               à  runtime.algarray   0  bruntime.gcbits.0x48884400000000000000000000000000   P  8go.string."generate.tmplArg"   p   type.*"".tmplArg   €  "runtime.zerovalue   À type."".tmplArg   À  go.string."Pkg"   à  type.string     &go.string."Imports"   °  "type."".importMap   à  ,go.string."Interfaces"   €  &type.[]reflect.Type   `° type."".tmplArg   °  &go.string."tmplArg"   À  "go.importpath."".   Ğ€ type."".tmplArg   ş,go.string."*[8]string" @  6        
-       *[8]string    ,go.string."*[8]string"   ştype.*[8]string            ­”o 6                                                                    runtime.algarray   0  bruntime.gcbits.0x88000000000000000000000000000000   P  ,go.string."*[8]string"   p  0go.weak.type.**[8]string   €  "runtime.zerovalue     type.[8]string   ş$go.string."go/ast" 0  .               go/ast    $go.string."go/ast"   ş*go.importpath.go/ast.                       $go.string."go/ast"   ş*go.string."go/parser" @  4        	       go/parser    *go.string."go/parser"   ş0go.importpath.go/parser.             	          *go.string."go/parser"   ş,go.importpath.runtime.                       &go.string."runtime"   ş$go.string."errors" 0  .               errors    $go.string."errors"   ş*go.importpath.errors.                       $go.string."errors"   şgo.string."io" 0  &               io    go.string."io"   ş"go.importpath.io.                       go.string."io"   ş&go.string."reflect" 0  0               reflect    &go.string."reflect"   ş,go.importpath.reflect.                       &go.string."reflect"   ş,go.string."go/printer" @  6        
-       go/printer    ,go.string."go/printer"   ş2go.importpath.go/printer.             
-          ,go.string."go/printer"   ş(go.string."go/token" @  2               go/token    (go.string."go/token"   ş.go.importpath.go/token.                       (go.string."go/token"   ş2go.string."text/template" @  <               text/template    2go.string."text/template"   ş8go.importpath.text/template.                       2go.string."text/template"   ş$go.string."regexp" 0  .               regexp    $go.string."regexp"   ş*go.importpath.regexp.                       $go.string."regexp"   ş"go.string."bytes" 0  ,               bytes    "go.string."bytes"   ş(go.importpath.bytes.                       "go.string."bytes"   ş.type..hash.[8]stringÂ·f              (type..hash.[8]string   ş$runtime.strhashÂ·f              runtime.strhash   ş*type..eq.[8]stringÂ·f              $type..eq.[8]string   ş&runtime.eqstringÂ·f               runtime.eqstring   ş"runtime.zerovalue      ÿÿgo13ld
