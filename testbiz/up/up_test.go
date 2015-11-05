@@ -1,7 +1,7 @@
 package main_test
 
 import (
-	"./testbiz/exec"
+	"../exec"
 	"fmt"
 	"github.com/jmcvetta/napping"
 	. "github.com/onsi/ginkgo"
