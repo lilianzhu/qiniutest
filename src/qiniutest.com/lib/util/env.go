@@ -7,8 +7,10 @@ import (
 )
 
 type EnvParam struct {
-	Username string `yaml:"username"`
-	Password string `yaml:"password"`
+	Environment struct {
+		Username string `yaml:"username"`
+		Password string `yaml:"password"`
+	}
 }
 
 func (e *EnvParam) GetHost() {
