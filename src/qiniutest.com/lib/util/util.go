@@ -3,7 +3,6 @@ package util
 import (
 	"encoding/base64"
 	"encoding/json"
-	// "fmt"
 	"github.com/jmcvetta/randutil"
 	"os"
 )
@@ -67,7 +66,7 @@ func GetEnv() map[string]interface{} {
 	return envMap
 }
 
-func Getrand(n int) (str string) {
+func GetRand(n int) (str string) {
 	str, _ = randutil.String(8, randutil.Alphanumeric)
 	return
 }

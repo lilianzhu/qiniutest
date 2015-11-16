@@ -1,5 +1,9 @@
 package fopimage
 
+import (
+	"qiniutest.com/lib/util"
+)
+
 type ImageView2Param struct {
 	Mode            string
 	WidthLongEdge   string
@@ -45,6 +49,6 @@ func (i *ImageView2Param) To_url() (url string) {
 	if i.Interlace != "" {
 		url += "interlace/" + i.Interlace + "/"
 	}
-	url += "随机"
+	url += util.GetRand(8)
 	return
 }
