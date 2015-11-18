@@ -1,0 +1,28 @@
+My name is qiniu
+My name is qiniu
+My name is qiniu
+
+响应内容
+
+■ 如果请求成功，返回包含如下内容的JSON字符串（已格式化，便于阅读）：
+
+{
+    "code": "<ResultCode         int>",
+    "message": "<ResultMessage   string>",
+    "fileList": [
+        {
+            "rate": <Rate        float>,
+            "label": <Category   int>,
+            "name": "<FileName   string>",
+            "review": <Review    boolean>
+        }
+    ],
+    "statistic": [
+        <Statistics              int>,
+        ...
+    ],
+    "reviewCount": <ReviewCount  int>,
+    "nonce": "<Nonce             string>",
+    "timestamp": "<Timestamp     string>"
+}
+dgfdfgfdh

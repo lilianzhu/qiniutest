@@ -4,7 +4,6 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"fmt"
 	"qiniutest.com/biz/up"
 	. "qiniutest.com/configs"
 	"qiniutest.com/lib/util"
@@ -34,15 +33,4 @@ var _ = Describe("PUT上传测试", func() {
 
 		Expect(bkt.Delete(ctx, key)).To(BeNil())
 	})
-
-	It("Put上传成功——2，返回200", func() {
-		fmt.Println("Load Parameters:" + ENV("username"))
-		Expect(true).To(Equal(true))
-	})
-
-	It("Put上传成功——3，返回200", func() {
-		fmt.Println("Load Parameters:" + ENV("iohost"))
-		Expect(true).To(Equal(true))
-	})
-
 })
