@@ -42,8 +42,8 @@ func loadConfig(m *map[string]string) {
 func ENV(key string) string {
 	if map_conf[key] == "" {
 		loadConfig(&map_conf)
+		fmt.Printf("ENVIRONMENTS: %v \n", map_conf)
 	}
 
-	fmt.Printf("ENVIRONMENTS: %v \n", map_conf)
 	return map_conf[key]
 }
