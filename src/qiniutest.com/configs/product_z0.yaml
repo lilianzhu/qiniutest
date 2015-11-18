@@ -22,6 +22,6 @@ aksk_password:     QA@7niu.com
 multizone_ak:      5WBnj2i9tMhtBXJYMd81l0kjRmnbfzUMOHFk0cFA
 multizone_sk:      1NV14VwS84SWEZauU37C-yZFxZz_6kBTznnDsxzP
 
-# 与 product_z0不同的地方
-iohost:            http://iovip-z1.qbox.me
-uphost:            http://up-z1.qiniu.com
+# 与 product_z1不同的地方
+iohost:            http://iovip.qbox.me
+uphost:            http://up.qiniu.com
