@@ -32,3 +32,6 @@ multizone_sk:      qfgbmr0Eqo1VVNNJOWJS7kb1AStUBF3XszfUYadw
 iohost:            http://192.168.20.102:5000
 uphost:            http://192.168.20.111:5010
 apigate_uphost:    http://192.168.20.111:3710
+
+# 默认测试空间和Domain
+bucket:            publicbucket_z1

@@ -25,3 +25,6 @@ multizone_sk:      1NV14VwS84SWEZauU37C-yZFxZz_6kBTznnDsxzP
 # 与 product_z1不同的地方
 iohost:            http://iovip.qbox.me
 uphost:            http://up.qiniu.com
+
+# 默认测试空间和Domain
+bucket:            publicbucket_z0

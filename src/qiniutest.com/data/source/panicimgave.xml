@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=1.0"/>
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta name="description" content="MM-兑换mm币-M赏" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="apple-touch-icon-precomposed" href="images/logo.png?ver=2&amp;positionid=7275367&amp;cuid=14849612" >
+	<style type="text/css">
+.mainDiv{display:inline-block;height:72px;width:50%;border-bottom:1px solid #e2e2e2;background:#fff;vertical-align:top;position:relative; font-size:12px;}.mainDiv a{display:block; height:72px;}.mainDiv .righta{border-left:1px solid #e2e2e2;}.mainDiv .pic{display:inline-block;vertical-align:top; float:left;}.mainDiv .pic img{width:52px;height:52px;margin:10px 5px 10px 10px;}.mainDiv .txt{ vertical-align:top; margin-left:47px; line-height:16px;}.mainDiv .txt .name{color:#333;display: block; padding-top:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;height:16px; font-size:15px;}.mainDiv .txt .info{color:#999;display:block;padding-top:2px; font-family:Arial; font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}.mainDiv .txt .info2{color:#999;display:block;padding-top:4px; font-family:Arial;font-size:12px;}
+.mainTit strong {font-size: 14px;color: #f30;float: right;right: 8px;position: relative;}
+.mainDiv .btn2 {background: url(http://a.10086.cn/mmfs/image/27804/27804100.png) no-repeat 2px -130px;background-size: 75px 727px;display: inline-block;position: absolute;width: 24px;height: 24px;right:5px;bottom: 5px;cursor: pointer;}	
+.txt{position:relative;}
+.people2{position: absolute; top: 25px; left: 130px;}；
+</style>
+    <style type="text/css">
+/* CSS Document */
+/*base*/
+body{font-family:"微软雅黑";font-size:14px;margin:0 auto;-webkit-text-size-adjust:none;word-break:break-all;color:#333; background:#f4f4f4;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-weight:normal; font-style:normal;}
+ul,ol{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-weight:normal; font-size:100%;}
+div{word-wrap:break-word;}
+center {height:15px;margin:5px 0;}
+input{vertical-align:middle;outline:none;}
+a{text-decoration:none;color:#444;}
+img{vertical-align:top;}
+/*outline:none用来去掉Google浏览器下，获取焦点后的黄框 */
+label{font-family:Tahoma, Geneva, sans-serif; vertical-align:middle;}
+a:link{text-decoration:none;}a:visited{text-decoration:none;}
+a:hover{text-decoration:none;}a:active{text-decoration:none;}
+/**/
+h2,p,ul,li{margin:0;padding:0;}
+.classDBY4 a{color:#5ea1db;}
+/*head部分*/
+header{height:47px; border-bottom:1px solid #e2e2e2; background:#fff;}
+header a{vertical-align:top;display:inline-block;float:right; font-size:14px;color:#c8cbce;line-height:25px;margin:11px 8px 11px 0;padding-left:8px; border-left:1px dashed #c8cbce;}
+header a.spA{vertical-align:top;display:inline-block;float:right; font-size:14px;color:#c8cbce;line-height:25px;margin:11px 8px 11px 0;padding-left:0px; border:none;}
+header a.logo{background:url(http://a.10086.cn/mmfs/image/27806/27806466.png); background-size:70px 25px; width:70px; height:25px; margin:11px 4px 11px 8px; float:none; padding-left:0px; border:none;}
+header a.ico_mor{background:url(http://a.10086.cn/mmfs/image/27806/27806467.png) no-repeat 100% 100%; background-size:6px 6px; font-size:16px;color:#666;line-height:16px;margin-top:20px;padding-right:5px; float:none;margin-right:0px;padding-left:0px; border:none;}
+header .login{display:inline-block;width:18px;height:18px;background:url(http://a.10086.cn/mmfs/image/27806/27806470.png);background-size:18px 18px;margin-top:4px;vertical-align:top; margin-left:2px;}
+header .logined{display:inline-block;width:18px;height:18px;background:url(http://a.10086.cn/mmfs/image/27806/27806478.png);background-size:18px 18px;margin-top:4px;vertical-align:top; margin-left:2px;}
+header .downloadX{display:inline-block;width:18px;height:18px;background:url(http://a.10086.cn/mmfs/image/27806/27806469.png); background-size:18px 18px;margin-top:4px; vertical-align:top; margin-left:2px;}
+.TanKuang:after{height:0;width:0;bottom:100%;border:solid transparent;content:" ";position:absolute;pointer-events:none}
+.TanKuang:after{margin-left:30px;border-color:rgba(136,183,213,0);border-bottom-color:rgba(0,0,0,0.6);border-width:5px;left:50%}
+.TanKuang{width:auto;height:auto;padding:0;background:rgba(0,0,0,.8);position:absolute;top:45px;right:auto;left:60px;z-index:999;border-radius:4px;display:none;color:#fff}
+.TanKuang:after{left:5%;border-bottom-color:rgba(0,0,0,.8);}
+.TanKuang li{border-bottom:solid 1px #4e4e4e;color:#999;text-align:center;}
+.TanKuang li a{padding:10px 25px;display:block;color:#999;}
+.TanKuang li:last-child{border:none}
+.header{height:43px; line-height:43px; color:#fff; font-size:16px; text-align:center; background:#5ea1db; border-bottom:2px solid #478cc8;position:relative;}
+.header strong{padding:0 30px; display:block;overflow: hidden;text-overflow: ellipsis; white-space: nowrap;}
+.header a{background:url(http://a.10086.cn/mmfs/image/27806/27806901.png) no-repeat 50% 50%;height:43px;width:18px;display:inline-block;background-size:18px 18px;position:absolute;right:10px;top:0px;}
+.header a.left{background:url(http://a.10086.cn/mmfs/image/27806/27806481.png) no-repeat 50% 50%;height:43px;width:18px;display:inline-block;background-size:18px 18px; position:absolute;left:10px;top:0px;}
+.header a.right{background:url(http://a.10086.cn/mmfs/image/27806/27806900.png) no-repeat 50% 50%;height:43px;width:18px;display:inline-block;background-size:18px 18px;position:absolute;right:35px;top:0px;}
+.header .lg{display:inline-block;position:absolute;right:52px;top:0px;}
+.header .lg a{background:none;height:43px;width:18px;display:inline-block;float:none;}
+.header .lg a .login{background:url(http://a.10086.cn/mmfs/image/27800/27800360.png) no-repeat 50% 50%;height:43px;width:18px;display:inline-block;background-size:18px 18px;}
+.header .lg a .logined{background:url(http://a.10086.cn/mmfs/image/27800/27800361.png) no-repeat 50% 50%;height:43px;width:18px;display:inline-block;background-size:18px 18px;}
+/*顶部tab*/
+.mainNav{height:46px;line-height:41px;color:#5ea1db; text-align:center; background:#fff; font-size:15px;}
+.mainNav div{border-bottom:2px solid #e2e2e2; display:inline-block; width:20%;}
+.mainNav div.active{border-bottom:2px solid #478dc9;}
+.mainNav div a{border-bottom:3px solid #fff;display:block;color:#5ea1db;}
+.mainNav div.active a{border-bottom:3px solid #54a2e5;}
+/*搜索和banner*/
+.topBox{margin:8px;position:relative;}
+.topBox .left{margin-right:77px;display:block;vertical-align:top;}
+.search{height:33px;border:1px solid #5ea1db;color:#5ea1db;background:#f1f8ff;font-size:14px;text-align:left;}
+.search .txt{border:none;height:24px;line-height:24px;margin:3px 0px 3px 4px;width:66%;color:#5ea1db;background:#f1f8ff;}
+.search .btn{border:none;background:url(http://a.10086.cn/mmfs/image/27806/27806471.png) no-repeat;background-size:26px 26px;display:inline-block;float:right;width:26px;height:26px;margin:3px 3px 3px 2px;}
+.search .clearTxt{background: url(http://a.10086.cn/mmfs/image/27806/27806472.png) no-repeat;background-size:26px 26px;display:none;float:right;width:26px;height:26px;margin:3px 0;}
+.topBox .right{width:69px;display:inline-block;vertical-align:top;text-align:center;position:absolute;top:0px;right:0px;}
+.topBox .right .sLink span{background:url(http://a.10086.cn/mmfs/image/27806/27806473.png) no-repeat;background-size:24px 24px;display:inline-block;width:24px;height:24px;margin:4px 2px 0 0;vertical-align:top;}
+.topBox .right .sLink a{height:32px;background:#ff8f7b;color:#fff;font-size:14px;line-height:32px;display:block; border:1px solid #e2e2e2; border-bottom:2px solid #e2e2e2;}
+.topBox .turnPic{position:relative;overflow:hidden;border:1px solid #e2e2e2;border-bottom:2px solid #e2e2e2;margin-top:8px;width:100%;height:auto;}
+.topBox .turnPic .turnPicList{position:relative;}
+.topBox .turnPic .turnPicList li{position:relative;float:left;}
+.topBox .turnPic .turnPicList img{vertical-align:top;width:100%;height:auto;}
+.topBox .turnPic .turnDot{text-align:right;position:absolute;bottom:2px;left:50%;display:inline;margin-left:-30px;}
+.topBox .turnPic .turnDot li{margin:3px;display:inline-block;font-size:0; background:#f4f4f4;width:9px;height:3px}
+.topBox .turnPic .turnDot li.active{background:#5ea1db;}
+/*app列表*/
+.tabNav{background:#fff;line-height:36px;line-height:36px; text-align:center;border:1px solid #e2e2e2; border-bottom:none; margin:8px 8px 0 8px;}
+.tabNav div{border-bottom:1px solid #e2e2e2;display:inline-block;width:33%;color:#666;font-size:15px;}
+.tabNav div span{border-bottom:2px solid #fff;display:block;height:36px;}
+.tabNav div.active{border-bottom:1px solid #5ea1db;width:34%;color:#5ea1db;}
+.tabNav div.active span{border-bottom:2px solid #5ea1db;}
+.btTabWrap .blrb{border:1px solid #e2e2e2;border-top:none;}
+.appBox{ font-size:14px;}
+.appBoxHead{ margin:8px 8px 0 8px; border-bottom:1px solid #e2e2e2;}
+.btTabWrap .appBox:first-child{border-top: none;margin-top:0px;}
+.appList{height:68px;position:relative;border-bottom:1px solid #e2e2e2;background:#fff;margin:0 8px; border-bottom:1px solid #e2e2e2; border-left:1px solid #e2e2e2; border-right:1px solid #e2e2e2;}
+.appList a{display:block;}
+.appList .pic{float:left; position:relative;}
+.appList .pic img{width:52px; height:52px; margin:8px 10px 8px 8px;}
+.appList .pic img.bmd{margin:0px;height:20px;width:20px;bottom:8px;right:10px;position:absolute}
+.appList .txt{padding-left:70px; padding-top:8px;}
+.appList .txt .name{font-size:15px;color:#333;line-height:15px; margin-bottom:5px; margin-right:45px;overflow: hidden;text-overflow: ellipsis; white-space: nowrap;}
+.appList .txt .starBar{height:12px;width:60px;background:url(http://a.10086.cn/mmfs/image/27806/27806474.png);background-size:12px 12px;}
+.appList .txt .starBar span{vertical-align:top;display:inline-block;height:12px;background:url(http://a.10086.cn/mmfs/image/27806/27806475.png);background-size:12px 12px;}
+.appList .txt .info{font-size:14px;line-height:14px; margin-top:5px; color:#999;}
+.appList .txt .info span{vertical-align:top;font-family:Arial; padding-left:4px; margin-left:4px; border-left:1px solid #999;}
+.appList .btn1{position:absolute;padding-top:26px;background:url(http://a.10086.cn/mmfs/image/27806/27806476.png) no-repeat 50% 0px;width:28px;font-size:14px;line-height:14px;font-family:Arial;background-size:22px 22px;top:14px;right:15px;color:#5ea1db;}
+.appList .btn2{position:absolute;background:url(http://a.10086.cn/mmfs/image/27806/27806477.png);width:22px;height:26px; background-size:22px 26px; top:21px; right:15px;}
+.appAjaxMore{margin:8px 0; height:33px; line-height:33px;background:#fff; border:1px solid #e2e2e2;}
+.appAjaxMore a{ display:block; font-size:15px; color:#999; text-align:center;}
+.appAjaxMore a .pic1{vertical-align:top;width:10px;height:5px;margin-top:14px;margin-left:5px;}
+.appAjaxMore a .pic2{vertical-align:top;width:15px;height:15px;margin-top:9px;margin-right:8px;}
+.appAjaxMore a .pic3{vertical-align:top;width:10px;height:5px;margin-top:14px;margin-left:5px;}
+.appAjaxMore2{margin:8px; height:33px; line-height:33px;background:#fff; border:1px solid #e2e2e2;}
+.appAjaxMore2 a{ display:block; font-size:15px; color:#999; text-align:center;}
+.appAjaxMore2 a .pic1{vertical-align:top;width:10px;height:5px;margin-top:14px;margin-left:5px;}
+.appAjaxMore2 a .pic2{vertical-align:top;width:15px;height:15px;margin-top:9px;margin-right:8px;}
+.appAjaxMore2 a .pic3{vertical-align:top;width:10px;height:5px;margin-top:14px;margin-left:5px;}
+/*底部*/
+.footer{text-align:center;font-size:14px;line-height:32px;}
+.footer .footNav{border-bottom:#cdcdcd 1px solid;border-top:#cdcdcd 1px solid;background:#e2e2e2;overflow:hidden;line-height:36px;font-size:16px;}
+.footer .footNavUp{width:20%;display:inline-block;}
+.footer .footNavUp a{width:100%;display:inline-block;border-bottom:#cdcdcd 1px solid;border-left:1px #cdcdcd solid;border-right:1px #f3f3f3 solid;color:#444;}
+.footer .footNavDown{width:20%;display:inline-block;}
+.footer .footNavDown a{width:100%;display:inline-block;border-top:#f3f3f3 1px solid;border-left:1px #cdcdcd solid;border-right:1px #f3f3f3 solid;color:#444;}
+.footer span{color:#fff;display:inline-block;margin:5px 3px;height:32px;line-height:32px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;}
+.footer span a{color:#fff;display:block;width:auto;padding:0px 2px 0px 22px;overflow:hidden;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;}
+.footer .btnL{background:url(http://a.10086.cn/pams2/image/mth/icon_24x24.png) no-repeat -1px -23px #b3c5db;}
+.footer .btnM{background:url(http://a.10086.cn/pams2/image/mth/icon_24x24.png) no-repeat -1px 5px #b3c5db;}
+.footer .btnR{background:url(http://a.10086.cn/pams2/image/mth/icon_24x24.png) no-repeat -1px -50px #b3c5db;}
+.footer .bbqh{color:#999999;}
+.footer .bbqh a{color:#007cd0;}
+.footer .fbd{ font-size:12px; color:#003b80;}
+.footer .footPic{ vertical-align:top; margin:9px 4px 0 0; height:18px;}
+/*必备*/
+.necessaryTab{padding-top:3px;line-height:24px;overflow:hidden;height:24px; background:#fff; text-align:center;}
+.necessaryTab a{display:inline-block;width:25%;color:#5ea1db;font-size:15px;}
+.necessaryTabBtn{background:#fff; cursor:pointer;text-align:center; height:8px; border-bottom:2px solid #e2e2e2;}
+.necessaryTabBtn img{vertical-align:top;width:9px;height:5px;} 
+.necessaryBox{border:1px solid #e2e2e2;margin:8px;border-right:none; background:#fff;}
+.necessaryTit{border-right:1px solid #e2e2e2;border-bottom:3px solid #5ea1db;font-size:16px;height:36px;line-height:36px;color:#5ea1db; padding-left:7px;}
+.necessaryTit a{color:#5ea1db; display:block;}
+.necessaryList{ border-bottom:1px solid #e2e2e2;display:inline-block;width:50%;height:51px; position: relative;}
+.necessaryList a{border-right:1px solid #e2e2e2; display:block;height:51px;}
+.necessaryList .pic{ float:left;}
+.necessaryList .pic img{vertical-align:top; width:37px;height:37px; margin:7px;}
+.necessaryList .txt{padding-left:51px; padding-top:7px;}
+.necessaryList .txt strong{font-size:15px;color:#333;height:15px;line-height:15px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.necessaryList .txt span{font-size:14px;color:#999;font-family:Arial;margin-top:8px;height:14px;line-height:14px; display:inline-block;}
+.necessaryList .btn{border:none;position:absolute;width:24px; height:24px; background:url(http://a.10086.cn/mmfs/image/27806/27806486.png); background-size:24px 24px;right:8px;bottom:7px;}
+.necessaryNull{background:url(http://a.10086.cn/mmfs/image/27806/27806487.png) no-repeat 15px 50%;padding:25px 25px 25px 85px;color:#333;line-height:25px;font-size:15px;background-size:60px 70px;height:60px;}
+.necessaryNull a{color:#5ea1db;text-decoration:underline;}
+/*排行*/
+.appNull{padding:168px 50px 45px 50px;line-height:24px;font-size:15px;color:#666;background:url(http://a.10086.cn/mmfs/image/27806/27806487.png) no-repeat 50% 45px #fff;background-size:80px 105px;border:1px solid #e2e2e2;border-bottom:2px solid #e2e2e2;border-top:none; margin:0 8px;}
+.appNull a{color:#5ea1db; text-decoration:underline;}
+.appLoading{padding:74px 50px 45px 50px;line-height:24px;font-size:15px;color:#666;background:url(http://a.10086.cn/mmfs/image/27806/27806480.gif) no-repeat 50% 45px #fff;background-size:15px 15px;border:1px solid #e2e2e2;border-bottom:2px solid #e2e2e2;border-top:none;text-align:center;}
+/*分类*/
+.classifyBox{margin:8px;border:1px solid #e2e2e2;text-align:center;background:#fff; font-size:15px;}
+.classifyBox div{vertical-align:top;}
+.classifyTit1{line-height:41px;height:41px;display:inline-block;width:34%;border-bottom:1px solid #e2e2e2;color:#77b3d4;}
+.classifyTit2{line-height:83px;height:83px;display:inline-block;width:34%;border-bottom:1px solid #e2e2e2;color:#76c2af;}
+.classifyTit3{line-height:83px;height:83px;display:inline-block;width:34%;border-bottom:1px solid #e2e2e2;color:#c75c5c;}
+.classifyTit4{line-height:125px;height:125px;display:inline-block;width:34%;border-bottom:1px solid #e2e2e2;color:#6f5073;}
+.classifyTit5{line-height:83px;height:83px;display:inline-block;width:34%;border-bottom:1px solid #e2e2e2;color:#77b3d4;}
+.classifyTit6{line-height:251px;height:251px;display:inline-block;width:34%;border-bottom:1px solid #e2e2e2;color:#8ac45f;}
+.classifyTit7{line-height:83px;height:83px;display:inline-block;width:34%;border-bottom:1px solid #e2e2e2;color:#c96c68;}
+.classifyTit8{line-height:41px;height:41px;display:inline-block;width:34%;border-bottom:1px solid #e2e2e2;color:#4f5d73;}
+.classifyBox span{display:block;border-right:1px dashed #e2e2e2;vertical-align:top;}
+.classifyBox a{display:block;height:41px;vertical-align:top;}
+.classifyBox img{vertical-align:middle;margin-right:7px;width:20px;height:20px;}
+.classifyTip{display:inline-block;width:66%;line-height:41px;color:#666;border-bottom:1px solid #e2e2e2;}
+.classifyTip .tipA{display:inline-block;width:50%;height:41px;border-bottom:1px dashed #e2e2e2;}
+
+.classifyTip .tipA a{border-right:1px dashed #e2e2e2;}
+.classifyTip .tipB{display:inline-block;width:50%;height:41px;border-bottom:1px dashed #e2e2e2;}
+.classifyTip .tipC{display:inline-block;width:50%;height:41px;}
+.classifyTip .tipC a{border-right:1px dashed #e2e2e2;}
+.classifyTip .tipD{display:inline-block;width:50%;height:41px;}
+/*分类列表*/
+.classifyTab{border-bottom:2px solid #e2e2e2;color:#999;font-size:14px;padding-left:8px;height:26px;line-height:23px;background:#fff;padding-top:3px;}
+.classifyTab a{display:inline-block;margin:0 25px 0 5px;width:42px;line-height:23px;color:#333;}
+.classifyTab a.active{border-bottom:3px solid #5ea1db; color:#5ea1db}
+.classifyTab a:last-child{margin:0 0 0 5px;}
+/*应用详情*/
+.appInfo{border-bottom:2px solid #e2e2e2; background:#fff; position:relative;}
+.appInfo .pic{float:left;}
+.appInfo .pic img{vertical-align:top; width:52px; height:52px;margin:8px 8px 0 8px;}
+.appInfo .txt{padding-top:4px; font-size:14px; color:#999; padding-left:68px; height:56px}
+.appInfo .txt .name{font-size:15px;color:#333;overflow:hidden;text-overflow: ellipsis;white-space: nowrap;}
+.appInfo .txt .starBar{height:12px;width:60px;background:url(http://a.10086.cn/mmfs/image/27806/27806474.png);background-size:12px 12px; margin:4px 0 6px 0;}
+.appInfo .txt .starBar span{vertical-align:top;display:inline-block;height:12px;background:url(http://a.10086.cn/mmfs/image/27806/27806475.png);background-size:12px 12px;}
+.appInfo .txt .info{font-size:12px;line-height:14px;color:#999;overflow:hidden;text-overflow: ellipsis;white-space: nowrap;margin-right: 105px;}
+.appInfo .txt .info span{vertical-align:top;font-family:Arial;padding-left:4px;margin-left:4px; border-left:1px solid #999;}
+.appInfo .icons{margin:0 8px;height:26px;color:#333;font-size:12px;}
+.appInfo .icons a{display:inline-block; height:14px; line-height:14px; margin:6px 10px 6px 0}
+.appInfo .icons a.btn{ float:right; margin:6px 0;}
+.appInfo .icons a img{height:14px;margin-right:5px;}
+.appInfo .icons a.btn img{margin:0;}
+.appInfo .price{position:absolute;text-align:right;right:8px; top:27px;height:32px;line-height:15px;color:#eb3535; font-size:15px;}
+.appInfo .price span{display:block;margin-bottom:2px;color:#333;text-decoration:line-through; min-width:1px;}
+.appInfo .moreInfo{display:none; margin:0 8px;}
+.appInfo .moreInfo .scan{ border-top:1px dashed #e2e2e2; line-height:26px; font-size:12px; padding:1px 10px;}
+.appInfo .moreInfo .scan em{ color:#333; display:inline-block; width:34%; text-align:left;}
+.appInfo .moreInfo .scan span{ color:#999; display:inline-block; width:33%; text-align: center;}
+.appInfo .moreInfo .scan strong{ color:#4abd52; display:inline-block; width:33%; text-align: right;}
+.appInfo .moreInfo .infoList{height:30px;line-height:30px;border-top:1px dashed #e2e2e2;background:url(http://a.10086.cn/mmfs/image/27806/27806503.png) no-repeat 100% 50%;background-size:7px 10px;display:block;}
+.appInfo .moreInfo .infoList img{vertical-align:top;width:14px;height:14px;margin:8px 8px 8px 0;}
+.appInfoPic{margin:8px; height:200px;}
+.appInfoPic img{ width:140px; height:200px;}
+.wrapId{font-size:14px;overflow:hidden;position:relative;width:auto; height:200px;}
+.wrap div{float:left;overflow:hidden;position:relative;text-align:left;width:40%;height:200px;}
+.appInfoBox{margin:8px;border:1px solid #e2e2e2; background:#fff;}
+.appInfoNav{height:31px;line-height:31px;font-size:15px; color:#fff; background:#5ea1db; padding-left:8px;}
+.appInfoNav a{ font-size:14px;display:inline-block; color:#003b80; background:url(http://a.10086.cn/mmfs/image/27806/27806502.png) no-repeat 0 50%;background-size:14px 14px;padding:0 8px 0 19px; float:right;}
+.appInfoBox .txt{padding:0 8px 5px 8px; line-height:18px; color:#999; font-size:14px; border-bottom:1px solid #e2e2e2;}
+.appInfoBox .txt span{font-size:15px;color:#333;line-height:15px;display:block;vertical-align:top; padding-top:10px;}
+.appInfoBox .txt strong{ padding:8px 0 3px 0;display:block;vertical-align:top; overflow:hidden;}
+.appInfoBox .txt strong em{ display:inline-block; width:50%;}
+.appInfoBox .txt strong .show{display:inline-block;float:right;width:14px;height:14px;background:url(http://a.10086.cn/mmfs/image/27806/27806500.png);background-size:14px 14px; margin:2px;}
+.appInfoBox .txt strong .hide{display:inline-block;float:right;width:14px;height:14px;background:url(http://a.10086.cn/mmfs/image/27806/27806501.png);background-size:14px 14px; margin:2px;}
+.appBottomBar{ position:fixed; bottom:0px; left:0px; width:100%; height:}
+.appBottomBar .top{ background:URL(http://a.10086.cn/mmfs/image/27806/27806508.png);background-size:320px 6px; height:6px;}
+.appBottomBar .bottom{background:#404040; height:34px; padding:4px 0; text-align:center;}
+.reList{border-bottom:1px dashed #e2e2e2; padding:8px 9px; color:#999; font-size:14px;line-height:24px;}
+.reList span{float:right;}
+.reList strong{color:#333;font-size:15px; line-height:25px; display:block;}
+.nullreList{border-bottom:1px solid #e2e2e2; padding:8px 9px; text-align:center;}
+.nullreList img{ vertical-align:top; width:88px;}
+.reMore{border-bottom:1px solid #e2e2e2; height:30px; line-height:30px; text-align:center;}
+.reMore a{display:block;}
+.reMore img{ vertical-align:top; height:9px; margin:11px 0px 0px 5px;}
+.youLikeBox{ border-bottom:1px solid #e2e2e2;}
+.youLike{display:inline-block;width:25%; vertical-align:top;text-align:center;}
+.youLike a{display:block;font-size:15px;line-height:15px;color:#333;margin:0 2px 8px 2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.youLike img{ vertical-align:top;width:52px;height:52px;margin:8px;}
+/*确认订购*/
+.tips1{color:#333;font-size:14px; line-height:22px; padding:4px 8px; background:#fff;}
+.tips1 span{color:#e84140;}
+.yzm{height: 40px;padding:8px; background:#fff}
+.yzm a{color:#5ea1db;display:inline-block;font-size:14px;line-height:14px;padding:22px 0 0 10px;text-decoration: underline;}
+.input{ margin:8px;border: 1px solid #5ea1db;background:#f1f8ff; height:33px;}
+.input img{ width:26px; height:26px; vertical-align:top; margin:4px;}
+.input .txt{border:none;height:24px;line-height:24px;margin:3px 4px;width:70%;color:#5ea1db;background:#f1f8ff;}
+.input .clearTxt{background: url(http://a.10086.cn/mmfs/image/27806/27806472.png) no-repeat;background-size:26px 26px;display:none;float:right;width:26px;height:26px;margin:3px 0;}
+.btnBox{text-align:center; margin:16px 0;}
+a.blueLongBtn{ display:inline-block;}
+.blueLongBtn{border:0;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;width:255px;height:32px;text-align:center;background:#47cf50;color:#fff;cursor:pointer;line-height:32px;font-size:14px;box-shadow:0px 2px 0px #38b841;}
+.tips2{line-height:18px; font-size:14px; color:#999;padding:4px 8px; background:#fff;}
+/*道具收费*/
+.payBox{ margin:8px; border:1px solid #5ea1db;text-align:center;}
+.payBox .tit{ height:33px; line-height:33px; background:#81bcef; font-size:14px; font-weight:bold; color:#fff;}
+.payBox .tit span{ display:inline-block; width:33%; }
+.payBox .info{ border-bottom:1px dashed #e2e2e2;line-height:33px;}
+.payBox .info:last-child{ border-bottom:none;}
+.payBox .info span{display:inline-block; width:33%;vertical-align:middle;}
+/*应用使用权限*/
+.limit{ background:#fff; padding:6px 0px}
+.limit .red{color:#E84140; font-size:15px; line-height:23px;}
+.limit .redTxt{ color:#333; font-size:15px; margin-top:2px; line-height:23px;}
+.limit .redTxt img{ vertical-align:top; width:18px; height:14px; margin:5px 8px 0 0}
+.limit .redTxt span{ color:#999; font-size:14px; line-height:22px; display:block; padding-left:26px;}
+.limit .yellow{color:#f7a212; font-size:15px; line-height:23px;}
+.limit .yellowTxt{color:#333;font-size:15px; margin-top:2px; line-height:23px;}
+.limit .yellowTxt img{ vertical-align:top; width:18px; height:14px; margin:5px 8px 0 0}
+.limit .yellowTxt span{color:#999;font-size:14px; line-height:22px; display:block; padding-left:26px;}
+.limit .box{ margin:0 8px; border-bottom:1px dashed #e2e2e2;}
+/*品牌店*/
+.singleAdPic{margin:8px; border-bottom:1px solid #e2e2e2;}
+.singleAdPic a{display:inline-block;}
+.singleAdPic img{ vertical-align:top; width:100%; border:1px solid #e2e2e2;}
+.starApp{height:69px;background:#fff; border-bottom:2px solid #e2e2e2;}
+.starApp .pic{float:left;}
+.starApp .pic img{ width:126px; height:53px; vertical-align:top; margin:8px;}
+.starApp .txt{padding-left:142px; font-size:15px; color:#333; padding-top:8px; line-height:27px;}
+.starApp .txt span{font-size:14px;line-height:26px;color:#999;}
+/*临时专题*/
+.bigPicList {border: 1px solid #C8C8C8;margin: 6px 0px;font-size: 14px;background: #fff;}
+.bigPicList .pic {color: #fff;position: relative;overflow: hidden;min-height: 50px;margin: 4px;}
+.bigPicList .pic img {width: 100%;vertical-align: top;}
+.bigPicList .word {color: #858585;line-height: 24px;margin: 0 4px;padding-bottom: 6px;font-size: 12px;border-bottom: 1px solid #c8c8c8;}
+.bigPicList .word strong {font-size: 15px;left: 25px;color: #676767;font-weight: bold;display: block;margin-bottom: 4px;}
+.bigPicList .tips {line-height: 22px;height: 22px;color: #a6a6a6;margin: 0 10px;word-spacing: 15px;font-size: 12px;}
+.bigPicList .tips img {vertical-align: top;width: 14px;height: 14px;margin: 4px 5px 4px 0;}
+</style>
+<style type="text/css">
+
+
+/*底部*/.footer{text-align:center;font-size:12px;line-height:32px;color:#666;padding-bottom:45px;}
+.footer .footNav{border-bottom:#cdcdcd 1px solid;border-top:#cdcdcd 1px solid;background:#e2e2e2;overflow:hidden;line-height:36px;font-size:16px;}
+
+.footer .footNavUp{width:20%;display:inline-block;}
+
+.footer .footNavUp a {border-bottom: 1px solid #cdcdcd;border-left: 1px solid #cdcdcd;border-right:none;color: #444;display: inline-block;width: 100%;}
+
+.footer .footNavDown{width:20%;display:inline-block;}
+
+.footer .footNavDown a {border-left: 1px solid #cdcdcd;border-right: medium none;border-top: none;color: #444;display: inline-block;width: 100%;}
+
+.footer span{color:#fff;display:inline-block;margin:5px 3px;height:32px;line-height:32px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;}.footer span a{color:#fff;display:block;width:auto;padding:0px 2px 0px 22px;overflow:hidden;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;}.footer .btnL{background:url(http://a.10086.cn/pams2/image/mth/icon_24x24.png) no-repeat -1px -23px #b3c5db;}.footer .btnM{background:url(http://a.10086.cn/pams2/image/mth/icon_24x24.png) no-repeat -1px 5px #b3c5db;}.footer .btnR{background:url(http://a.10086.cn/pams2/image/mth/icon_24x24.png) no-repeat -1px -50px #b3c5db;}.footer .bbqh{color:#999999;padding:12px 0 15px 0;}.footer .bbqh a{color:#007cd0;}.footer .fbd{ font-size:14px; color:#999;}.footer .footPic{ vertical-align:top; margin:9px 5px 0 0; height:18px;}
+.footer .top{background:url(http://a.10086.cn/mmfs/image/27832/27832474.png) no-repeat 8px 7px rgba(120, 174, 220, 0.8);background-size:20px auto;height:38px;width:38px;display:block; position:fixed;right:10px;bottom:113px; cursor:pointer; z-index:1000;}
+.footer .write{background:url(http://a.10086.cn/mmfs/image/27832/27832477.png) no-repeat 8px 7px rgba(120, 174, 220, 0.8);background-size:20px auto;height:38px;width:38px;display:block; position:fixed;right:10px;  bottom:161px; cursor:pointer; z-index:1000;}
+.footer .top a,.footer .write a{display:block;width:38px;height:38px;}
+
+
+.flyBox{position:fixed;left:0px;bottom:0px;width:100%;height:60px;background:rgba(46,46,46,0.5);z-index:999;color:#fff;line-height:60px;font-size:14px;display:none;}.flyBox img{width:40px;margin:10px;border-radius:6px; vertical-align:top;}.flyBox a{color:#fff;display:block;}.flyBox .in{border:0;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;width:55px;height:20px;text-align:center;background:#47cf50;color:#fff;cursor:pointer;line-height:20px;font-size:14px;box-shadow:0px 2px 0px #38b841;display:inline-block;top:20px;right:38px;position:absolute;}.flyBox .cancle{width:12px;height:12px;vertical-align:top;cursor:pointer;margin:3px;border-radius:0px;}.flyBox span{display:inline-block;width:18px;height:18px;vertical-align:top;background:#7b7b7b;position:absolute;top:0px;right:0px;}
+.footer .bbqh a:first-child,.footer .bbqh a:last-child{font-size:14px;outline:1px solid #E4E4E4;background:#fff;line-height:33px;padding:10px 23px 9px 23px;} .footer .bbqh a:nth-child(2){font-size:14px;outline:1px solid #E4E4E4;background:#E3E3E3;line-height:33px;padding:10px 23px 9px 23px;margin:0 10px;color:#999;}
+
+</style>
+<style>#weixin{margin-top:10px}</style>
+<!--新增的样式集合-->
+<style type="text/css">
+/*聚汇应用的*/
+.appInfo .txt .info p{float:left;}
+.appInfo .txt .info ul{float:left; overflow:hidden;}
+.appInfoBox .mainDiv{background: none repeat scroll 0 0 #fff;border-bottom: 1px solid #e2e2e2;display: inline-block;font-size: 12px;height: 68px;position: relative;vertical-align: top;width: 50%; float:left;}
+.appInfoBox .mainDiv a{display: block;height: 68px; color:#444; text-decoration:none;}
+.appInfoBox .mainDiv .righta {border-left: 1px solid #e2e2e2;}
+.appInfoBox .mainDiv .pic {display: inline-block;float: left;vertical-align: top;}
+.appInfoBox .mainDiv .pic img {height:52px;margin: 7px 5px 8px;width: 52px; vertical-align:top;}
+.appInfoBox .mainDiv .txt{line-height: 16px;margin-left:57px;vertical-align: top; border:none;}
+.appInfoBox .mainDiv .txt .name {color: #333;display: block;font-size: 15px;height: 16px;
+overflow: hidden;padding-top: 6px;text-overflow: ellipsis;white-space: nowrap;}
+.appInfoBox .mainDiv .txt .interest{color: #999;display: block;font-size: 12px;padding-top: 6px;overflow: hidden;padding-top: 6px;text-overflow: ellipsis;white-space: nowrap;}
+.appInfoBox .mainDiv .txt .interest b{color:#999; font-weight:normal;}
+.appInfoBox .mainDiv .txt .info {color: #999;display: block;padding-top:4px;}
+.appInfoBox .mainDiv .down {background: url("http://a.10086.cn/mmfs/image/27804/27804100.png") no-repeat scroll 2px -130px / 75px 727px rgba(0, 0, 0, 0);bottom: 5px;cursor: pointer;display: inline-block;height: 24px;position: absolute;right: 2px;width: 24px;}
+/*通用样式*/
+.people2{position: absolute; top: 25px; left: 130px;font-size:12px;}.people{font-size:12px; margin:4px 0 6px;}
+.txt{position:relative;}
+.redTip{padding:10px 0 5px 10px; border-bottom: 1px dashed #e2e2e2; color:#eb7e00;font-size:12px;}</style>	<title>应用详情页</title>
+</head>
+<body>
+<div class="header"><a class="left"  href="javascript:void(0);?ver=2&amp;positionid=7275367&amp;cuid=14849612" onclick="history.go(-1)"></a><strong>应用详情</strong><div class="lg"><a href="http://a.10086.cn/pams2/l/s.do?j=l&amp;bUrl=gId%3D300002575008%26c%3D1528%26j%3Dl%26p%3D72%26ver%3D2%26positionid%3D7275367%26cuid%3D14849612%26&amp;c=204&amp;gId=300002575008&amp;p=72&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612"><span class="login"></span></a></div><a href="http://a.10086.cn/pams2/l/s.do?p=72&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612" class="right" target="_top"></a><a href="http://a.10086.cn/pams2/l/s.do?c=3681&amp;gId=300002575008&amp;bmcId=&amp;bUrl=gId%3D300002575008%26c%3D1528%26j%3Dl%26p%3D72%26ver%3D2%26positionid%3D7275367%26cuid%3D14849612&amp;j=l&amp;p=72&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612" >&nbsp;</a></div>
+	<div class="appInfo">
+		<div class="pic"><img src="http://a.10086.cn/mmfs/image/27806/27806881.png" data-original="http://u5.mm-img.mmarket.com:80/rs/res2/21/2015/07/03/a239/482/44482239/logo120x1205890872967-png8.png" /></div>
+		<div class="txt">
+			<div class="name">和通讯录（原号簿管家）</div>
+			<div class="starBar"><span style="width:80%"></span></div>
+            <div class="people2"> | 1000万+人感兴趣</div>
+			<div class="info">中国移动</div>
+		</div>
+		<div class="price"></div>
+		<div class="icons"><a><img src="http://a.10086.cn/mmfs/image/27806/27806496.png" />无病毒</a><a><img src="http://a.10086.cn/mmfs/image/27807/27807643.png" />无广告</a><a class="btn"><img src="http://a.10086.cn/mmfs/image/27806/27806500.png" /></a></div>
+<div class="moreInfo" style="display:none;">
+			<div class="scan"><em>汉邦检测</em><span>扫描结果</span><strong>通过</strong><em>网秦安全</em><span>扫描结果</span><strong>通过</strong><em>手机安全先锋</em><span>扫描结果</span><strong>通过</strong></div>
+			
+			
+			<a class="infoList" href="http://a.10086.cn/pams2/l/s.do?gId=300002575008&amp;c=7848&amp;j=l&amp;p=72&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612"><img src="http://a.10086.cn/mmfs/image/27807/27807648.png" />应用使用权限</a>
+                        <a class="infoList" href="http://a.10086.cn/pams2/l/s.do?gId=300002575008&amp;bUrl=gId%3D300002575008%26c%3D1528%26j%3Dl%26p%3D72%26ver%3D2%26positionid%3D7275367%26cuid%3D14849612&amp;c=3336&amp;j=l&amp;p=72&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612"><img src="http://a.10086.cn/mmfs/image/27807/27807649.png" />一键举报</a>
+	</div>
+</div>
+	<div class="appInfoPic">
+		<div class="wrapId">
+			<div class="wrap" num="2.05">	
+				<div><img src="http://a.10086.cn/mmfs/image/27806/27806871.jpg" data-original="http://u5.mm-img.mmarket.com:80/rs/res2/21/2015/07/03/a242/482/44482242/picture240x3205890829472.jpg" /></div><div><img src="http://a.10086.cn/mmfs/image/27806/27806871.jpg" data-original="http://u5.mm-img.mmarket.com:80/rs/res2/21/2015/07/03/a246/482/44482246/picture240x3205890834046.jpg" /></div><div><img src="http://a.10086.cn/mmfs/image/27806/27806871.jpg" data-original="http://u5.mm-img.mmarket.com:80/rs/res2/21/2015/07/03/a250/482/44482250/picture240x3205890836035.jpg" /></div><div><img src="http://a.10086.cn/mmfs/image/27806/27806871.jpg" data-original="http://u5.mm-img.mmarket.com:80/rs/res2/21/2015/07/03/a254/482/44482254/picture240x3205890838805.jpg" /></div>
+			</div>
+		</div>
+	</div>
+	<div class="appInfoBox">
+		<div class="appInfoNav">应用简介</div>
+		<div class="txt">
+			<span>版本信息</span>
+			<strong><em>更新：2015.07.03</em><em>版本：3.7.0</em><br/>
+			<em>类型：通话通信</em><em>大小：10.81M</em></strong>
+			<span>小编点评</span>
+			<strong>携手掌阅，免费送书券</strong>
+			<span>内容详情</span>
+			<strong id="appContent">“和通讯录”是中国移动全新推出的通讯录手机应用。该应用能将用户手机中的联系人信息同步到云端的通讯录平台，同时还拥有智能拨号、短信群发、定时短信、隐私保护、烦打扰、电话黄页、分省一卡多号等功能。用户可以通过登录WWW网站(pim.10086.cn)查询和管理云端的通讯录信息。
+二、功能特色：
+定时短信：爸妈生日、结婚纪念日，通通不怕遗忘。
+生活助手：机票、酒店、吃喝玩乐、随时掌握。
+号码备份：号码多多、快捷备份、智能拨号
+防打扰：垃圾短信电话、帮你分辨，还你清净。
+联系人信息回收站：从此不再为误删而懊恼。
+三、联系我们：
+官方微博：http://weibo.com/hetongxunlu
+腾讯QQ群：140349037
+官方微信：hetongxunlu</strong>
+		</div>
+	</div>
+	<div class="appInfoBox">
+		<div class="appInfoNav">用户评价</div><div class="reList">杭州市<span>2015-08-08</span><strong>很好</strong></div><div class="reList">商洛市<span>2015-08-08</span><strong>很好</strong></div><div class="reList">广安市<span>2015-08-08</span><strong>好极了</strong></div><div class="reMore"><a href="http://a.10086.cn/pams2/l/s.do?gId=300002575008&amp;c=3680&amp;totalC=2484&amp;contentType=1&amp;j=l&amp;p=72&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612">查看更多<img src="http://a.10086.cn/mmfs/image/27806/27806503.png"></a></div>
+			</div>
+			
+	
+		<div class="appInfoBox" style="overflow:hidden;"><div class="appInfoNav">猜你喜欢</div><div class="mainDiv"> <a class="lefta" href="http://a.10086.cn/pams2/l/s.do?gId=300008844206&amp;c=1528&amp;j=l&amp;p=72&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612">  <div class="pic">		<img src="http://a.10086.cn/mmfs/image/27806/27806881.png" data-original="http://u5.mm-img.mmarket.com:80/rs/res2/21/2015/02/28/a349/091/42091349/logo1120x1205101829567-png8.png" style="display: inline;">  </div>	<div class="txt">		<span class="name">和通讯录lite</span>		<span class="interest">400万+人感兴趣</span>		<span class="info">2.44MB</span>	</div></a><a class="down" onclick="sub3(0,'http://a.10086.cn/pams2/mmGoUrl.jsp?gType=soft&amp;gAppcateId=12&amp;gFeeType=0&amp;dcId=300008844206&amp;dua=7709&amp;dver=2&amp;dus=WIFI&amp;gId=100001195101377100007728588300008844206&amp;cuid=14849612&amp;ver=2')" ></a></div><div class="mainDiv"> <a class="righta" href="http://a.10086.cn/pams2/l/s.do?gId=300002669957&amp;c=1528&amp;j=l&amp;p=72&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612">  <div class="pic">		<img src="http://a.10086.cn/mmfs/image/27806/27806881.png" data-original="http://u5.mm-img.mmarket.com:80/rs/res1/21/2013/11/11/a316/273/31273316/icon_120x120.jpg" style="display: inline;">  </div>	<div class="txt">		<span class="name">云通讯录</span>		<span class="interest"><1万人感兴趣</span>		<span class="info">2.57MB</span>	</div></a><a class="down" onclick="sub3(0,'http://a.10086.cn/pams2/mmGoUrl.jsp?gType=soft&amp;gAppcateId=12&amp;gFeeType=0&amp;dcId=300002669957&amp;dua=7709&amp;dver=2&amp;dus=WIFI&amp;gId=100002333220757100001859378300002669957&amp;cuid=14849612&amp;ver=2')" ></a></div><div class="mainDiv"> <a class="lefta" href="http://a.10086.cn/pams2/l/s.do?gId=300001134988&amp;c=1528&amp;j=l&amp;p=72&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612">  <div class="pic">		<img src="http://a.10086.cn/mmfs/image/27806/27806881.png" data-original="http://u5.mm-img.mmarket.com:80/rs/res1/21/2013/11/29/a372/139/32139372/3e821f918925a0466cadb9015e76abde_256_256.png" style="display: inline;">  </div>	<div class="txt">		<span class="name">QQ通讯录</span>		<span class="interest">10万+人感兴趣</span>		<span class="info">10.26MB</span>	</div></a><a class="down" onclick="sub3(0,'http://a.10086.cn/pams2/mmGoUrl.jsp?gType=soft&amp;gAppcateId=12&amp;gFeeType=0&amp;dcId=300001134988&amp;dua=7709&amp;dver=2&amp;dus=WIFI&amp;gId=100002333100930100000574623300001134988&amp;cuid=14849612&amp;ver=2')" ></a></div><div class="mainDiv"> <a class="righta" href="http://a.10086.cn/pams2/l/s.do?gId=300002841066&amp;c=1528&amp;j=l&amp;p=72&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612">  <div class="pic">		<img src="http://a.10086.cn/mmfs/image/27806/27806881.png" data-original="http://u5.mm-img.mmarket.com:80/rs/res1/21/2014/05/11/a416/144/35144416/logo1120x1209746742077-png8.png" style="display: inline;">  </div>	<div class="txt">		<span class="name">通讯录plus</span>		<span class="interest"><1万人感兴趣</span>		<span class="info">0.0MB</span>	</div></a><a class="down" onclick="sub3(1,'')" ></a></div></div>	
+		<div class="appBottomBar"><div class="top"></div><div class="bottom"><a class="blueLongBtn" onclick="sub3(0,'http://a.10086.cn/pams2/mmGoUrl.jsp?gType=soft&amp;gAppcateId=12&amp;gFeeType=0&amp;dcId=300002575008&amp;dua=7709&amp;dver=2&amp;dus=WIFI&amp;gId=300002575008&amp;cuid=14849612&amp;ver=2&amp;positionid=7275367')" >免费下载</a></div></div>
+
+	<div class="footer">
+<div class="footNav">
+<div class="footNavUp"><a href="http://a.10086.cn/pams2/l/s.do?p=72&amp;blockId=18040&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612" target="_top">首页</a></div><div class="footNavUp"><a href="http://a.10086.cn/pams2/l/s.do?
+
+j=l&amp;p=80&amp;c=4081&amp;ver=2&amp;blockId=19547&amp;positionid=7275367&amp;cuid=14849612" target="_top">阅读</a></div><div class="footNavUp"><a href="http://a.10086.cn/pams2/l/s.do?p=84&amp;ver=2&amp;blockId=19547&amp;positionid=7275367&amp;cuid=14849612" target="_top">音乐</a></div><div class="footNavUp"><a href="http://a.10086.cn/pams2/l/s.do?
+
+&amp;p=82&amp;ver=2&amp;blockId=19547&amp;positionid=7275367&amp;cuid=14849612" target="_top">视频</a></div><div class="footNavUp"><a href="http://a.10086.cn/pams2/l/s.do?j=l&amp;p=72&amp;c=36&amp;ver=2&amp;blockId=20847&amp;positionid=7275367&amp;cuid=14849612" target="_top">软件</a></div><div class="footNavDown"><a href="http://a.10086.cn/pams2/l/s.do?
+
+j=l&amp;p=72&amp;c=3509&amp;blockId=19547&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612" target="_top">游戏</a></div><div class="footNavDown"><a href="http://a.10086.cn/pams2/l/s.do?
+
+j=l&amp;p=83&amp;c=3045&amp;ver=2&amp;blockId=19547&amp;positionid=7275367&amp;cuid=14849612" target="_top">动漫</a></div><div class="footNavDown"><a href="http://p.i139.cn/p/l/?s=132&amp;p=83&amp;blockId=20847&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612" target="_top">新闻</a></div><div class="footNavDown"><a href="http://p.i139.cn/p/l/?s=132&amp;p=85&amp;blockId=20847&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612" target="_top">娱乐</a></div><div class="footNavDown"><a href="http://p.i139.cn/p/l/?s=132&amp;p=84&amp;blockId=20847&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612" target="_top">体育</a></div></div>
+
+<div class="bbqh"><a href="http://a.10086.cn/pams2/m/s.do?p=72&amp;ver=1&amp;blockId=19547&amp;positionid=7275367&amp;cuid=14849612" target="_top">炫彩版</a><a >触屏版</a><a href="http://a.10086.cn/pams2/l/s.do?j=l&amp;p=72&amp;c=1427&amp;blockId=19547&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612" target="_top">客户端</a></div>
+<div class="top"></div>
+<div class="write"><a href="http://a.10086.cn/pams2/l/s.do?j=l&amp;p=72&amp;c=3342&amp;blockId=20847&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612">&nbsp;</a></div>
+<div class="fbd"><img class="footPic" src="http://a.10086.cn/mmfs/image/27832/27832487.png"><a href="http://white.anva.org.cn?blockId=20847&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612">自律组</a>&nbsp;|&nbsp;<img class="footPic" src="http://a.10086.cn/mmfs/image/27832/27832486.png"><a href="http://a.10086.cn/pams2/m/linkUrl.jsp?j=d&amp;p=72&amp;c=899&amp;r=8849&amp;blockId=19309&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612">关注cmmm10086</a>&nbsp;|&nbsp;<img class="footPic" src="http://a.10086.cn/mmfs/image/27832/27832475.png"><a href="http://net.china.com.cn/index.htm?blockId=19305&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612">暴恐举报</a></div>
+粤ICP备08034647号<br>
+中国移动通信集团广东有限公司 版权所有
+</div>
+<!--弹出框 style="display:none"-->
+<div class="popUp" id="popSongLIst" style="display:none">
+	<ul id="songListRows">
+		<li id="myCollect">我的收藏</li>
+		请您先登录再查看<!--参数配置成3-->
+	</ul>
+	<div class="newSing">
+		<input type="text" id="newSongList" value="请输入新歌单名...">
+	</div>
+	<a class="btn" id="songListSubmit">确认</a><a id="songListCancel" class="btnG">取消</a>
+</div><style type="text/css">.flyBox{position:fixed;left:0px;bottom:0px;width:100%;height:60px;background:rgba(46,46,46,0.5);z-index:999;color:#fff;line-height:60px;font-size:14px;display:none;}.flyBox img{width:40px;margin:10px;border-radius:6px; vertical-align:top;}.flyBox a{color:#fff;display:block;}.flyBox .in{border:0;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;width:55px;height:20px;text-align:center;background:#47cf50;color:#fff;cursor:pointer;line-height:20px;font-size:14px;box-shadow:0px 2px 0px #38b841;display:inline-block;top:20px;right:38px;position:absolute;}.flyBox .cancle{width:12px;height:12px;vertical-align:top;cursor:pointer;margin:3px;border-radius:0px;}.flyBox span{display:inline-block;width:18px;height:18px;vertical-align:top;background:#7b7b7b;position:absolute;top:0px;right:0px;}</style>
+<div id="theFlyBox" class="flyBox"><a href="http://a.10086.cn/pams2/l/s.do?gId=300000863435&amp;c=1528&amp;j=l&amp;p=72&amp;src=5210069835&amp;blockId=20013&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612"><img src="http://a.10086.cn/mmfs/image/27796/27796841.png">超过1亿人使用的手机娱乐平台！</a><a class="in" href="http://a.10086.cn/pams2/linkUrl.jsp?j=d&amp;p=72&amp;c=17&amp;r=27845130&amp;src=5210069835&amp;blockId=20013&amp;ver=2&amp;positionid=7275367&amp;cuid=14849612">下载</a><span onclick="disappear()"><img class="cancle" src="http://a.10086.cn/mmfs/image/27802/27802773.png"></span></div>
+<script>
+var CookieUtil = {
+get : function(name) {
+var cookieName = encodeURIComponent(name) + "=", cookieStart = document.cookie.indexOf(cookieName), cookieValue = null;
+if (cookieStart > -1) {
+var cookieEnd = document.cookie.indexOf(";", cookieStart);
+if (cookieEnd == -1) {
+cookieEnd = document.cookie.length;
+}
+cookieValue = decodeURIComponent(document.cookie.substring(cookieStart + cookieName.length, cookieEnd));
+}
+return cookieValue;
+},
+set : function(name, value, expires, path, domain, secure) {
+var cookieText = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+if ( expires instanceof Date) {
+cookieText += "; expires=" + expires.toGMTString();
+}
+if (path) {
+cookieText += "; path=" + path;
+}
+if (domain) {
+cookieText += "; domain=" + domain;
+}
+if (secure) {
+cookieText += "; secure";
+}
+document.cookie = cookieText;
+},
+unset : function(name, path, domain, secure) {
+this.set(name, "", new Date(0), path, domain, secure);
+}
+};
+var Days = 1;
+var exp = new Date();
+exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+function preCookie() {
+if (CookieUtil.get("bottomPop") == null || CookieUtil.get("bottomPop") == "" || isNaN(CookieUtil.get("bottomPop"))) {
+document.getElementById("theFlyBox").style.display = "block";
+} else {
+document.getElementById("theFlyBox").style.display = "none";
+}
+}
+function disappear() {
+document.getElementById("theFlyBox").style.display = "none";
+CookieUtil.set("bottomPop", 0);
+}
+</script>
+
+    <div class="weixinDetail_font">我在MM商场发现了一款好玩的应用</div>
+<div class="weixinDetail_back">，推荐您也来用用~</div>
+<div class="friendDetail">安卓版免费下载-来自MM商场，快来一起玩~ </div>
+</body>
+<link rel="stylesheet" href="http://a.10086.cn/pams2/js/ww_appDetail/share.css?ver=2&amp;positionid=7275367&amp;cuid=14849612">
+<script src="http://a.10086.cn/pams2/js/ww_general/jquery-1.7.1.min.js"></script>
+<script src="http://a.10086.cn/pams2/js/ww_appDetail/share.js"></script>
+<script src="http://a.10086.cn/pams2/js/std/jq.mobi.min.js"></script>
+<script src="http://a.10086.cn/pams2/js/std/lazyloadmobi.js"></script>
+<script src="http://a.10086.cn/pams2/js/std/swipe.js"></script>
+<script src="http://a.10086.cn/pams2/js/4g/4g.js"></script>
+<script>$(function(){ scroller(); })</script><script src="../js/1411/bottom.js"></script>
+<script src="http://a.10086.cn/pams2/js/video/scroll.js"></script>
+<script src="../js/dbynew/v830.js"></script></html>
+</html>
+
