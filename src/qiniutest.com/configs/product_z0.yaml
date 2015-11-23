@@ -28,3 +28,4 @@ uphost:            http://up.qiniu.com
 
 # 默认测试空间和Domain
 bucket:            publicbucket_z0
+privatebucket:     7xlvdy.com1.z0.glb.clouddn.com
