@@ -82,4 +82,8 @@ func (p *Mac) MakeUptoken(policy *PutPolicy) string {
 	return SignWithData(p, b)
 }
 
+// func (p *Mac) Generate_Acctoken(policy *PutPolicy) string {
+
+// }
+
 // ----------------------------------------------------------
