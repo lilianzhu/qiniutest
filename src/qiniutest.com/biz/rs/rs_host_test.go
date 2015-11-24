@@ -4,6 +4,7 @@ import (
 	//"github.com/jmcvetta/napping"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
+	. "qiniutest.com/configs"
 )
 
 var _ = Describe("Get /host/<bucket>", func() {
@@ -20,7 +21,8 @@ var _ = Describe("Get /host/<bucket>", func() {
 
 		Context("对于z1的空间", func() {
 			It("应该能得到华东UP和IO的Host的地址", func() {
-
+				resp := DeleteKey(ENV("bucket"), "test.go", ENV("access_key"), ENV("secret_key"))
+				Expect(resp.Status()).To(Equal(200))
 				Expect(true).To(Equal(true))
 
 			})

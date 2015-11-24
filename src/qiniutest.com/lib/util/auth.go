@@ -2,6 +2,7 @@ package util
 
 import (
 	"encoding/json"
+	"net/http"
 	"net/url"
 	"strconv"
 	"strings"
@@ -82,8 +83,14 @@ func (p *Mac) MakeUptoken(policy *PutPolicy) string {
 	return SignWithData(p, b)
 }
 
-// func (p *Mac) Generate_Acctoken(policy *PutPolicy) string {
-
-// }
+// generate acctoken
+func (p *Mac) Generate_Acctoken(rawUrl, body, method string) (token string) {
+	bodyReader := strings.NewReader(body)
+	req, _ := http.NewRequest(method, rawUrl, bodyReader)
+	req.URL, _ = url.Parse(rawUrl)
+	incbody := incBody(req)
+	token, _ = p.SignRequest(req, incbody)
+	return
+}
 
 // ----------------------------------------------------------

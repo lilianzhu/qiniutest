@@ -62,6 +62,7 @@ func (mac *Mac) SignRequest(req *http.Request, incbody bool) (token string, err 
 
 	u := req.URL
 	data := u.Path
+
 	if u.RawQuery != "" {
 		data += "?" + u.RawQuery
 	}
