@@ -35,3 +35,4 @@ apigate_uphost:    http://192.168.20.103:3710
 
 # 默认测试空间和Domain
 bucket:            publicbucket_z0
+privatebucket:     privatebucket_z0
