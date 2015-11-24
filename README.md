@@ -13,7 +13,7 @@
 2. bootstrap --nodot && bootstrap --nodot <filename>
 
 ### 更新identifiers
-ginkgo nodot
+- ginkgo nodot
 
 ### 执行测试用例
 1. cd qiniutest/ && source env.sh
@@ -25,7 +25,7 @@ ginkgo nodot
 - ginkgo --skip=<REGEXP> 不执行匹配REGEXP的case
 
 ### 并行执行
-－ ginkgo -p 自动检测cpu数量
-－ ginkgo -nodes=N 设置并行运行的node数量
-－ 加 -stream 可查看每个node的处理情况
+- ginkgo -p 自动检测cpu数量
+- ginkgo -nodes=N 设置并行运行的node数量
+- 加 -stream 可查看每个node的处理情况
 
