@@ -4,6 +4,8 @@ import (
 	"github.com/onsi/ginkgo"
 	"github.com/onsi/gomega"
 
+	"qiniutest.com/biz/acc"
+	"qiniutest.com/configs"
 	"testing"
 )
 
@@ -11,6 +13,12 @@ func TestAcc(t *testing.T) {
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "Acc Suite")
 }
+
+// Declarations for configs
+var Env = configs.ENV
+
+//Declarations for acc
+var GetAccToken = acc.GetAccToken
 
 // Declarations for Ginkgo DSL
 type Done ginkgo.Done
