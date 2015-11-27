@@ -1,9 +1,7 @@
 package rs_test
 
 import (
-	. "github.com/onsi/ginkgo"
-	. "github.com/onsi/gomega"
-
+	. "qiniutest.com/lib/def"
 	"testing"
 )
 
