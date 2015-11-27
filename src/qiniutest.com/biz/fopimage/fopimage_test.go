@@ -1,10 +1,7 @@
 package fopimage_test
 
 import (
-	// "os"
-	// "qiniutest.com/biz/fopimage"
-	. "qiniutest.com/configs"
-	"qiniutest.com/lib/util"
+	. "qiniutest.com/lib/def"
 )
 
 var _ = Describe("Fopimage", func() {
