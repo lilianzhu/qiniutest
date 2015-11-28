@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"github.com/jmcvetta/randutil"
 	"os"
+
+	. "github.com/onsi/gomega"
 )
 
 // ---------------------------------------------------------------------------
@@ -42,6 +44,12 @@ func Decode(encodeType int, Data string) (string, error) {
 	default:
 		return "", nil
 	}
+}
+
+func EncodeURL(url string) (res string) {
+	res, err := Encode(EncodeType_Base64URL, url)
+	Expect(err).ToNot(Equal(BeNil()))
+	return res
 }
 
 func ConvertToMap(data string) (map[string]interface{}, error) {
