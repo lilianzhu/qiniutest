@@ -10,10 +10,8 @@ import (
 	"net/url"
 )
 
-func GenerateAcctoken(url, body, ak, sk string) {
-
-}
-
+// QBox Authorization
+// DOC: https://github.com/qbox/bs-apidoc/blob/master/apidoc/v6/auths/Qbox.md
 func SignRequest(uri, body, ak, sk string) (token string) {
 	u, err := url.Parse(uri)
 	Expect(err).ToNot(Equal(BeNil()), "Parse url failed, url = %d", uri)
