@@ -5,8 +5,6 @@ import (
 	"encoding/json"
 	"github.com/jmcvetta/randutil"
 	"os"
-
-	. "github.com/onsi/gomega"
 )
 
 // ---------------------------------------------------------------------------
@@ -47,8 +45,7 @@ func Decode(encodeType int, Data string) (string, error) {
 }
 
 func EncodeURL(url string) (res string) {
-	res, err := Encode(EncodeType_Base64URL, url)
-	Expect(err).ToNot(Equal(BeNil()))
+	res, _ = Encode(EncodeType_Base64URL, url)
 	return res
 }
 
