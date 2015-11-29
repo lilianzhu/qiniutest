@@ -44,6 +44,11 @@ func Decode(encodeType int, Data string) (string, error) {
 	}
 }
 
+func EncodeURL(url string) (res string) {
+	res, _ = Encode(EncodeType_Base64URL, url)
+	return res
+}
+
 func ConvertToMap(data string) (map[string]interface{}, error) {
 	b := []byte(data)
 	var r interface{}

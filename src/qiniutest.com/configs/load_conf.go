@@ -23,7 +23,8 @@ func selectConfigFile() string {
 }
 
 func loadConfig(m *map[string]string) {
-	filePath := "../../configs/" + selectConfigFile()
+	prefixPath := os.Getenv("QBOXROOT") + "/qiniutest/src/qiniutest.com/configs/"
+	filePath := prefixPath + selectConfigFile()
 	fmt.Printf("CHOOSE CONFIG FILE: %v \n", filePath)
 	yamlFile, err := ioutil.ReadFile(filePath)
 	if err != nil {
