@@ -17,13 +17,13 @@ var _ = Describe("迁移域名 [apihost]/v6/domain/republish", func() {
 		Context("使用Admin Token", func() {
 
 			It("同一人，Publish 一个Bucket的Domain到另一个bucket", func() {
-				PublishDomain("Test", "Test", "UID")
-
-				Expect(true).To(Equal(true))
+				res, _ := PublishDomain("Test", "Test", "UID")
+				Expect(res.Status()).To(Equal(200), "Failed to publish domain, response= %v", res.HttpResponse())
 			})
 
 			It("把一个账号的Domain Republish到另一个人的bucket上", func() {
-
+				res, _ := RepublishDomain("test", "test", "e", "test")
+				Expect(res.Status()).To(Equal(200), "Failed to publish domain with response: %v", res.HttpResponse())
 			})
 
 		})

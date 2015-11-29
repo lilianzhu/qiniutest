@@ -1,7 +1,6 @@
 package auth
 
 import (
-	// . "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
 	"crypto/hmac"
