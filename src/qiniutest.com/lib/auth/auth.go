@@ -1,8 +1,10 @@
-package util
+package auth
 
 import (
+	"crypto/hmac"
+	"crypto/sha1"
+	"encoding/base64"
 	"encoding/json"
-	"net/http"
 	"net/url"
 	"strconv"
 	"strings"
@@ -18,33 +20,6 @@ import (
 func MakeBaseUrl(domain, key string) (baseUrl string) {
 
 	return "http://" + domain + "/" + url.QueryEscape(key)
-}
-
-// ----------------------------------------------------------
-
-type GetPolicy struct {
-	Expires uint32
-}
-
-func (p *Mac) MakePrivateUrl(baseUrl string, policy *GetPolicy) (privateUrl string) {
-
-	var expires int64
-	if policy == nil || policy.Expires == 0 {
-		expires = 3600
-	} else {
-		expires = int64(policy.Expires)
-	}
-	deadline := time.Now().Unix() + expires
-
-	if strings.Contains(baseUrl, "?") {
-		baseUrl += "&e="
-	} else {
-		baseUrl += "?e="
-	}
-	baseUrl += strconv.FormatInt(deadline, 10)
-
-	token := Sign(p, []byte(baseUrl))
-	return baseUrl + "&token=" + token
 }
 
 // --------------------------------------------------------------------------------
@@ -72,25 +47,68 @@ type PutPolicy struct {
 	Checksum            string `json:"checksum,omitempty"` // 格式：<HashName>:<HexHashValue>，目前支持 MD5/SHA1。
 }
 
-func (p *Mac) MakeUptoken(policy *PutPolicy) string {
+func (p *PutPolicy) MakeUptoken(ak, sk string) string {
 
-	var rr = *policy
+	var rr = *p
 	if rr.Expires == 0 {
 		rr.Expires = 3600
 	}
 	rr.Expires += uint32(time.Now().Unix())
 	b, _ := json.Marshal(&rr)
-	return SignWithData(p, b)
+
+	return SignWithData(b, ak, sk)
 }
 
-// generate acctoken
-func (p *Mac) Generate_Acctoken(rawUrl, body, method string) (token string) {
-	bodyReader := strings.NewReader(body)
-	req, _ := http.NewRequest(method, rawUrl, bodyReader)
-	req.URL, _ = url.Parse(rawUrl)
-	incbody := incBody(req)
-	token, _ = p.SignRequest(req, incbody)
-	return
+func (p *PutPolicy) MakePrivateUrl(baseUrl, ak, sk string) string {
+	var expires int64
+	if p == nil || p.Expires == 0 {
+		expires = 3600
+	} else {
+		expires = int64(p.Expires)
+	}
+	deadline := time.Now().Unix() + expires
+
+	if strings.Contains(baseUrl, "?") {
+		baseUrl += "&e="
+	} else {
+		baseUrl += "?e="
+	}
+	baseUrl += strconv.FormatInt(deadline, 10)
+
+	token := Sign([]byte(baseUrl), ak, sk)
+
+	return baseUrl + "&token=" + token
 }
 
 // ----------------------------------------------------------
+
+func Sign(data []byte, ak, sk string) (token string) {
+
+	h := hmac.New(sha1.New, []byte(sk))
+	h.Write(data)
+
+	sign := base64.URLEncoding.EncodeToString(h.Sum(nil))
+	return ak + ":" + sign[:27]
+}
+
+func SignWithData(b []byte, ak, sk string) (token string) {
+
+	blen := base64.URLEncoding.EncodedLen(len(b))
+
+	key := ak
+	nkey := len(key)
+	ret := make([]byte, nkey+30+blen)
+
+	base64.URLEncoding.Encode(ret[nkey+30:], b)
+
+	h := hmac.New(sha1.New, []byte(sk))
+	h.Write(ret[nkey+30:])
+	digest := h.Sum(nil)
+
+	copy(ret, key)
+	ret[nkey] = ':'
+	base64.URLEncoding.Encode(ret[nkey+1:], digest)
+	ret[nkey+29] = ':'
+
+	return string(ret)
+}

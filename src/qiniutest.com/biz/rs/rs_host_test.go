@@ -20,7 +20,6 @@ var _ = Describe("Get /host/<bucket>", func() {
 			It("应该能得到华东UP和IO的Host的地址", func() {
 				resp := DeleteKey(Env("bucket"), "test.go", Env("access_key"), Env("secret_key"))
 				Expect(resp.Status()).To(Equal(200))
-				Expect(true).To(Equal(true))
 
 			})
 

@@ -1,19 +1,19 @@
 package up
 
 import (
-	"qiniupkg.com/api.v7/kodo"
+	"net/http"
 	. "qiniutest.com/configs"
+	. "qiniutest.com/lib/util"
 )
 
-func NewDefaultConfig() kodo.Config {
-	cfg := kodo.Config{}
-
-	cfg.AccessKey = ENV("access_key")
-	cfg.SecretKey = ENV("secret_key")
-	cfg.RSHost = ENV("rshost")
-	cfg.RSFHost = ENV("rsfhost")
-	cfg.IoHost = ENV("iohost")
-	cfg.UpHosts = []string{ENV("uphost")}
-
-	return cfg
+func FormUp(key, filepath, token string) (res *Response) {
+	body := map[string]string{"Key": key, "filepath": filepath, "token": token}
+	session := &Session{}
+	session.Header = &http.Header{}
+	session.Header.Add("Content-Type", "application/octet-stream")
+	resp, err := session.Post(ENV("uphost"), body, nil, nil)
+	if err != nil {
+		println(err)
+	}
+	return resp
 }

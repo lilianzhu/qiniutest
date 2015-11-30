@@ -21,6 +21,11 @@ import (
 	"net/url"
 	"strings"
 	"time"
+
+	"io"
+	"mime/multipart"
+	"os"
+	"path/filepath"
 )
 
 type Session struct {
@@ -104,9 +109,32 @@ func (s *Session) Send(r *Request) (response *Response, err error) {
 				err = errors.New("Payload must be of type *bytes.Buffer if RawPayload is set to true")
 				return
 			}
+		} else if s.Header.Get("Content-Type") == "application/octet-stream" {
+			var params = r.Payload.(map[string]string)
+			file, err := os.Open(params["filepath"])
+
+			body := &bytes.Buffer{}
+			writer := multipart.NewWriter(body)
+			part, err := writer.CreateFormFile("file", filepath.Base(params["filepath"]))
+			if err != nil {
+				return nil, err
+			}
+			_, err = io.Copy(part, file)
+
+			for key, val := range params {
+				if key != "filepath" {
+					_ = writer.WriteField(key, val)
+				}
+			}
+			err = writer.Close()
+			if err != nil {
+				return nil, err
+			}
+			req, err = http.NewRequest(r.Method, u.String(), body)
+			header.Set("Content-Type", writer.FormDataContentType())
 		} else {
 			var b []byte
-			if s.Header.Get("Content-Type") != "application/json" {
+			if s.Header.Get("Content-Type") == "application/x-www-form-urlencoded" {
 				b = []byte(r.Payload.(string))
 			} else {
 				b, err = json.Marshal(&r.Payload)
@@ -116,16 +144,17 @@ func (s *Session) Send(r *Request) (response *Response, err error) {
 				}
 			}
 			buf = bytes.NewBuffer(b)
-		}
-		if buf != nil {
-			req, err = http.NewRequest(r.Method, u.String(), buf)
-		} else {
-			req, err = http.NewRequest(r.Method, u.String(), nil)
+			if buf != nil {
+				req, err = http.NewRequest(r.Method, u.String(), buf)
+			} else {
+				req, err = http.NewRequest(r.Method, u.String(), nil)
+			}
 		}
 		if err != nil {
 			s.log(err)
 			return
 		}
+		// println(req.Header.Get("Content-Type"))
 		// Overwrite the content type to json since we're pushing the payload as json
 		// header.Set("Content-Type", "application/x-www-form-urlencoded")
 	} else { // no data to encode
@@ -203,7 +232,6 @@ func (s *Session) Send(r *Request) (response *Response, err error) {
 	defer resp.Body.Close()
 	r.status = resp.StatusCode
 	r.response = resp
-
 	//
 	// Unmarshal
 	//
@@ -292,7 +320,6 @@ func (s *Session) Post(url string, payload, result, errMsg interface{}) (*Respon
 		Result:  result,
 		Error:   errMsg,
 	}
-	println(s.Header.Get("Content-Type"))
 	return s.Send(&r)
 }
 

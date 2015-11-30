@@ -4,7 +4,6 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"github.com/jmcvetta/randutil"
-	"os"
 )
 
 // ---------------------------------------------------------------------------
@@ -49,11 +48,9 @@ func EncodeURL(url string) (res string) {
 	return res
 }
 
-func ConvertToMap(data string) (map[string]interface{}, error) {
+func StringToJson(data string, r interface{}) error {
 	b := []byte(data)
-	var r interface{}
-	err := json.Unmarshal(b, &r)
-	return r.(map[string]interface{}), err
+	return json.Unmarshal(b, &r)
 }
 
 func MapCopy(dst, src map[string]interface{}) {
@@ -62,16 +59,7 @@ func MapCopy(dst, src map[string]interface{}) {
 	}
 }
 
-func GetEnv() map[string]interface{} {
-	test_env := os.Getenv("TEST_ENV")
-	test_zone := os.Getenv("TEST_ZONE")
-	envMap, _ := ConvertToMap(os.Getenv("QiniuTestEnv_" + test_env))
-	zoneMap, _ := ConvertToMap(os.Getenv("QiniuTestEnv_" + test_env + "_" + test_zone))
-	MapCopy(envMap, zoneMap)
-	return envMap
-}
-
 func GetRand(n int) (str string) {
-	str, _ = randutil.String(8, randutil.Alphanumeric)
+	str, _ = randutil.String(n, randutil.Alphanumeric)
 	return
 }
