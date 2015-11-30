@@ -15,7 +15,7 @@ var _ = Describe("表单上传测试", func() {
 
 		Expect(resp.Status()).To(Equal(200))
 		upResult := UpResult
-		err := JsonToMap(resp.RawText(), &upResult)
+		err := resp.Unmarshal(&upResult)
 		Expect(err).To(BeNil())
 		Expect(upResult.Hash).To(Equal(qetag))
 		Expect(upResult.Key).To(Equal(qetag))

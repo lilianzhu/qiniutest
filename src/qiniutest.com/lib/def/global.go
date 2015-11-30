@@ -12,7 +12,6 @@ var ENV = configs.ENV
 
 //Declarations for util
 var GetRand = util.GetRand
-var JsonToMap = util.StringToJson
 var GetEtag = util.GetEtag
 
 //Declarations for token

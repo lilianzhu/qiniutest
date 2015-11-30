@@ -6,8 +6,13 @@ import (
 
 var _ = Describe("Acc", func() {
 	It("获取用户acctoken成功，返回200", func() {
-		resp, acctoken := GetAccessToken(Env("username"), Env("password"))
+		resp := GetAccToken(ENV("username"), ENV("password"))
+		result := AccTokenResult
 		Expect(resp.Status()).To(Equal(200))
-		Expect(acctoken).NotTo(BeNil())
+		err := resp.Unmarshal(&result)
+		Expect(err).To(BeNil())
+		println(result.AccToken)
+		Expect(result.AccToken).NotTo(BeNil())
+		Expect(result.RefToken).NotTo(BeNil())
 	})
 })

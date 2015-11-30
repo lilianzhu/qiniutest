@@ -12,4 +12,5 @@ func TestAcc(t *testing.T) {
 }
 
 //Declarations for acc
-var GetAccessToken = acc.GetAccessToken
+var GetAccToken = acc.GetAccToken
+var AccTokenResult acc.AccTokenResult
